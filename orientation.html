@@ -1,0 +1,1110 @@
+<title>PRC Orientation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+<style>
+/* Layout: a vertical orientation board. Slim sticky nav, then stacked notice
+   panels, each headed by a mono rail label like a posted site document. */
+:root{
+  --ground:#14110f; --raised:#1c1815; --sunk:#100e0c; --card:#1a1613;
+  --line:#332b26; --line-soft:#262019;
+  --ink:#f2ebe4; --ink2:#b6a99f; --ink3:#857870;
+  --amber:#e8a33d; --crimson:#ce4046; --steel:#6f98b8; --moss:#96b078;
+  --parch:#d6c9bc; --slate:#1c3b53;
+  --display:"Barlow Condensed","Arial Narrow","Roboto Condensed",sans-serif;
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.62;
+  padding-inline:16px; padding-block:0;
+}
+.wrap{max-width:860px; margin:0 auto}
+
+/* ---------------------------------------------------------------- mast */
+.mast{padding-block:40px 26px; display:flex; gap:20px; align-items:flex-start}
+.mast .seal{width:76px; height:76px; flex:0 0 auto}
+.mast .txt{min-width:0}
+.eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--ink3); margin:0 0 8px;
+}
+h1{
+  font-family:var(--display); font-weight:700; font-size:clamp(40px,10vw,66px);
+  line-height:.95; letter-spacing:-.01em; margin:0 0 12px; text-wrap:balance;
+}
+.lede{font-size:17px; color:var(--parch); margin:0; max-width:52ch}
+.lede b{color:var(--ink); font-weight:600}
+
+.status{
+  display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.07em; text-transform:uppercase;
+}
+.status span{
+  border:1px solid var(--line); border-radius:999px; padding:5px 13px;
+  color:var(--ink3); background:var(--raised);
+}
+.status span b{color:var(--parch); font-weight:600}
+.status .live{border-color:#4e8c6355; background:#4e8c6318}
+.status .live b{color:#7fc498}
+.status .hot{border-color:#e8a33d44; background:#e8a33d12}
+.status .hot b{color:var(--amber)}
+
+/* ---------------------------------------------------------------- nav */
+.jump{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:30;
+  margin-inline:-16px; padding-inline:16px;
+  background:color-mix(in srgb, var(--ground) 94%, transparent);
+  backdrop-filter:blur(8px); border-bottom:1px solid var(--line-soft);
+}
+.jump .wrap{display:flex; gap:2px; overflow-x:auto; scrollbar-width:none}
+.jump .wrap::-webkit-scrollbar{display:none}
+.jump a{
+  flex:0 0 auto; padding:13px 11px; font-family:var(--mono); font-size:11px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink3);
+  text-decoration:none; border-bottom:2px solid transparent; white-space:nowrap;
+}
+.jump a:hover{color:var(--parch)}
+.jump a.on{color:var(--amber); border-bottom-color:var(--amber)}
+.jump a:focus-visible{outline:2px solid var(--amber); outline-offset:-4px}
+
+/* ---------------------------------------------------------------- panels */
+section{padding-block:46px; border-top:1px solid var(--line-soft)}
+section:first-of-type{border-top:0}
+.rail{
+  font-family:var(--mono); font-size:11px; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--ink3); margin:0 0 10px;
+  display:flex; align-items:center; gap:10px;
+}
+.rail::after{content:""; flex:1; height:1px; background:var(--line-soft)}
+h2{
+  font-family:var(--display); font-weight:700; font-size:clamp(28px,6.5vw,42px);
+  line-height:1.03; margin:0 0 14px; text-wrap:balance;
+}
+h3{
+  font-family:var(--display); font-weight:600; font-size:23px; line-height:1.15;
+  margin:30px 0 8px; color:var(--parch);
+}
+p{margin:0 0 15px; max-width:66ch}
+p.wide{max-width:none}
+.dim{color:var(--ink2)}
+b,strong{color:var(--ink); font-weight:600}
+a{color:var(--amber)}
+code{
+  font-family:var(--mono); font-size:.88em; background:var(--sunk);
+  border:1px solid var(--line-soft); border-radius:4px; padding:1px 5px; color:var(--parch);
+}
+
+/* ---------------------------------------------------------------- steps */
+.steps{list-style:none; margin:0; padding:0; display:grid; gap:14px}
+.step{
+  display:grid; grid-template-columns:38px 1fr; gap:15px; align-items:start;
+  background:var(--card); border:1px solid var(--line); border-radius:10px; padding:17px 18px;
+}
+.step .n{
+  font-family:var(--mono); font-size:13px; font-weight:600; color:var(--ground);
+  background:var(--amber); width:28px; height:28px; border-radius:50%;
+  display:grid; place-items:center; margin-top:1px;
+}
+.step h4{font-family:var(--display); font-size:21px; font-weight:600; margin:0 0 4px}
+.step p{margin:0; font-size:15.5px; color:var(--ink2)}
+.step p + p{margin-top:8px}
+
+/* ---------------------------------------------------------------- loop */
+.loop{display:grid; gap:10px; margin:22px 0 6px}
+@media(min-width:720px){.loop{grid-template-columns:repeat(4,1fr); gap:8px}}
+.loop .node{
+  background:var(--sunk); border:1px solid var(--line); border-radius:9px;
+  padding:15px 16px; position:relative; min-width:0;
+}
+.loop .node .k{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--amber); margin-bottom:5px;
+}
+.loop .node .v{font-size:14.5px; color:var(--ink2); line-height:1.45}
+.loop .node .v b{color:var(--parch)}
+.loop .node::after{
+  content:"\25BC"; position:absolute; left:50%; bottom:-14px; transform:translateX(-50%);
+  color:var(--line); font-size:11px;
+}
+.loop .node:last-child::after{content:none}
+@media(min-width:720px){
+  .loop .node::after{content:"\25B6"; left:auto; right:-11px; bottom:auto; top:50%; transform:translateY(-50%)}
+}
+.stamp{
+  margin-top:20px; border-left:3px solid var(--amber); background:#17140f;
+  padding:14px 18px; border-radius:0 8px 8px 0;
+}
+.stamp p{margin:0; color:var(--parch); font-size:16px}
+
+/* ---------------------------------------------------------------- split */
+.split{display:grid; gap:14px; margin:4px 0 0}
+@media(min-width:640px){.split{grid-template-columns:1fr 1fr}}
+.half{
+  background:var(--card); border:1px solid var(--line); border-radius:10px; padding:19px 20px; min-width:0;
+}
+.half .k{
+  font-family:var(--mono); font-size:11px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--ink3); margin-bottom:8px;
+}
+.half h4{font-family:var(--display); font-size:26px; font-weight:700; margin:0 0 9px; color:var(--amber)}
+.half.b h4{color:var(--steel)}
+.half p{margin:0; font-size:15.5px; color:var(--ink2)}
+.half ul{margin:11px 0 0; padding-left:17px; font-size:15px; color:var(--ink2)}
+.half li{margin-bottom:4px}
+
+/* ---------------------------------------------------------------- ladder */
+.ladder{list-style:none; margin:18px 0 0; padding:0; display:grid; gap:1px;
+  background:var(--line-soft); border:1px solid var(--line); border-radius:10px; overflow:hidden}
+.ladder li{
+  background:var(--raised); padding:13px 17px; display:grid; gap:3px;
+  grid-template-columns:1fr; align-items:baseline;
+}
+@media(min-width:620px){
+  .ladder li{grid-template-columns:150px 1fr; gap:18px}
+}
+.ladder .name{font-family:var(--display); font-size:20px; font-weight:600; color:var(--parch)}
+.ladder .what{font-size:15px; color:var(--ink2); min-width:0}
+.ladder li.top{background:#1e1a14}
+.ladder li.top .name{color:var(--amber)}
+
+/* ---------------------------------------------------------------- toggle */
+.reveal{margin-top:22px}
+.reveal>summary{
+  cursor:pointer; list-style:none; font-family:var(--mono); font-size:11.5px;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--ink3);
+  border:1px dashed var(--line); border-radius:8px; padding:12px 16px; display:block;
+}
+.reveal>summary::-webkit-details-marker{display:none}
+.reveal>summary:hover{color:var(--parch); border-color:#584b42}
+.reveal>summary:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
+.reveal[open]>summary{color:var(--amber); border-style:solid; border-color:var(--line); margin-bottom:4px}
+.reveal>summary::before{content:"\25B8  "}
+.reveal[open]>summary::before{content:"\25BE  "}
+
+/* ---------------------------------------------------------------- table */
+.tbl{overflow-x:auto; margin:16px 0 0; border:1px solid var(--line); border-radius:10px}
+table{border-collapse:collapse; width:100%; min-width:460px; font-size:15px}
+th,td{text-align:left; padding:11px 15px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink3); background:var(--sunk); font-weight:500; white-space:nowrap;
+}
+tr:last-child td{border-bottom:0}
+td.m{font-family:var(--mono); font-size:13.5px; color:var(--amber); white-space:nowrap; font-variant-numeric:tabular-nums}
+td b{color:var(--parch)}
+
+/* ---------------------------------------------------------------- picker */
+.picker{display:grid; grid-template-columns:repeat(2,1fr); gap:9px; margin:18px 0 0}
+@media(min-width:680px){.picker{grid-template-columns:repeat(3,1fr)}}
+.pick{
+  appearance:none; cursor:pointer; text-align:left; font-family:inherit;
+  background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:15px 14px; color:var(--ink2); display:grid; gap:9px; min-width:0;
+  transition:border-color .14s, background .14s;
+}
+.pick:hover{border-color:#584b42; background:var(--raised)}
+.pick:focus-visible{outline:2px solid var(--amber); outline-offset:2px}
+.pick[aria-pressed="true"]{border-color:var(--amber); background:#1e1a14}
+.pick .seal{width:34px; height:34px}
+.pick .nm{font-family:var(--display); font-size:19px; font-weight:600; color:var(--parch); line-height:1.1}
+.pick[aria-pressed="true"] .nm{color:var(--amber)}
+.pick .sub{font-family:var(--mono); font-size:10.5px; letter-spacing:.11em; text-transform:uppercase; color:var(--ink3)}
+
+.detail{
+  margin-top:16px; background:var(--raised); border:1px solid var(--line);
+  border-radius:12px; padding:22px 22px 24px;
+}
+.detail .hd{display:flex; gap:15px; align-items:center; margin-bottom:4px}
+.detail .hd .seal{width:46px; height:46px; flex:0 0 auto}
+.detail h3{margin:0; font-size:28px; color:var(--ink)}
+.detail .code{font-family:var(--mono); font-size:11px; letter-spacing:.15em; color:var(--ink3); text-transform:uppercase}
+.detail .line{font-size:16.5px; color:var(--parch); margin:14px 0 0}
+.detail .block{margin-top:20px}
+.detail .block .k{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink3); margin-bottom:7px;
+}
+.detail ul{margin:0; padding-left:18px; color:var(--ink2); font-size:15.5px}
+.detail li{margin-bottom:5px}
+.detail .rungs{display:grid; gap:1px; background:var(--line-soft); border:1px solid var(--line); border-radius:8px; overflow:hidden}
+.detail .rungs div{background:var(--sunk); padding:9px 14px; display:flex; gap:12px; align-items:baseline; flex-wrap:wrap}
+.detail .rungs .g{font-family:var(--mono); font-size:12px; color:var(--amber); width:26px; flex:0 0 auto}
+.detail .rungs .r{font-family:var(--display); font-size:18px; font-weight:600; color:var(--parch)}
+.detail .rungs .d{font-size:14px; color:var(--ink3); min-width:0}
+.howin{
+  margin-top:20px; border-left:3px solid var(--moss); background:#141811;
+  padding:13px 17px; border-radius:0 8px 8px 0; font-size:15.5px; color:var(--parch);
+}
+.howin b{color:#aecd8c}
+.shut{border-left-color:var(--crimson); background:#1a1211}
+.shut b{color:#e0787c}
+
+/* ---------------------------------------------------------------- board */
+.board{
+  background:var(--sunk); border:1px solid var(--line); border-radius:10px;
+  padding:17px 18px; overflow-x:auto; margin:18px 0 0;
+}
+.board pre{
+  margin:0; font-family:var(--mono); font-size:13px; line-height:1.75;
+  color:var(--parch); white-space:pre;
+}
+.board .bar{color:var(--amber)}
+.cap{font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink3); margin:9px 0 0}
+
+/* ---------------------------------------------------------------- week */
+.week{display:grid; gap:10px; margin:18px 0 0}
+@media(min-width:680px){.week{grid-template-columns:repeat(3,1fr)}}
+.day{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:17px 18px; min-width:0}
+.day .d{font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:6px}
+.day h4{font-family:var(--display); font-size:21px; font-weight:600; margin:0 0 6px; color:var(--parch)}
+.day p{margin:0; font-size:15px; color:var(--ink2)}
+.day .t{font-family:var(--mono); font-size:12px; color:var(--ink3); margin-top:9px}
+
+/* ---------------------------------------------------------------- channels */
+.chan{display:grid; gap:14px; margin:18px 0 0}
+@media(min-width:680px){.chan{grid-template-columns:1fr 1fr}}
+.grp{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px 18px; min-width:0}
+.grp .g{font-family:var(--mono); font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--amber); margin-bottom:10px}
+.grp dl{margin:0; display:grid; gap:9px}
+.grp dt{font-family:var(--mono); font-size:13px; color:var(--parch)}
+.grp dd{margin:2px 0 0; font-size:14.5px; color:var(--ink3); line-height:1.45}
+
+/* ---------------------------------------------------------------- glossary */
+.srch{
+  width:100%; margin:18px 0 0; background:var(--sunk); border:1px solid var(--line);
+  border-radius:9px; padding:13px 16px; color:var(--ink); font-family:var(--sans); font-size:15.5px;
+}
+.srch::placeholder{color:var(--ink3)}
+.srch:focus{outline:2px solid var(--amber); outline-offset:1px; border-color:var(--amber)}
+.gloss{list-style:none; margin:12px 0 0; padding:0; display:grid; gap:1px;
+  background:var(--line-soft); border:1px solid var(--line); border-radius:10px; overflow:hidden}
+.gloss li{background:var(--raised); padding:13px 17px; display:grid; gap:3px}
+@media(min-width:620px){.gloss li{grid-template-columns:168px 1fr; gap:18px; align-items:baseline}}
+.gloss .t{font-family:var(--display); font-size:19px; font-weight:600; color:var(--parch)}
+.gloss .m{font-size:15px; color:var(--ink2); min-width:0}
+.none{padding:18px; color:var(--ink3); font-size:15px; text-align:center}
+
+/* ---------------------------------------------------------------- close */
+.close{
+  background:linear-gradient(180deg,#1b1713,#161310); border:1px solid var(--line);
+  border-radius:12px; padding:26px 24px; margin-top:8px;
+}
+.close h3{margin-top:0; color:var(--amber); font-size:27px}
+.close p:last-child{margin-bottom:0}
+footer{
+  border-top:1px solid var(--line-soft); padding-block:26px 44px; margin-top:34px;
+  font-family:var(--mono); font-size:11px; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--ink3); display:flex; flex-wrap:wrap; gap:6px 20px;
+}
+footer b{color:var(--parch); font-weight:500}
+.redact{background:var(--ink3); color:transparent; border-radius:2px; user-select:none}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important; scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+section{scroll-margin-top:64px}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <svg class="seal" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><clipPath id="prcmain_iic"><circle cx="256" cy="256" r="236"/></clipPath></defs>
+  <circle cx="256" cy="256" r="250" fill="#1C3B53"/>
+  <circle cx="256" cy="256" r="236" fill="#E6DCD1"/>
+  <g clip-path="url(#prcmain_iic)">
+    <g transform="translate(256,256) scale(2.0171) translate(-256,-256)"><path d="M 261.0,253.0 L 354.6,253.0 L 352.4,242.2 L 352.0,231.1 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 325.9,222.6 L 314.9,218.6 L 315.9,207.0 Z" fill="#46687F" opacity="0.32"/><path d="M 261.0,253.0 L 307.1,189.3 L 293.3,199.1 L 295.4,182.3 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 287.0,137.6 L 277.3,136.8 L 267.8,134.9 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 251.1,192.1 L 247.1,199.5 L 240.1,194.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 231.1,198.0 L 229.9,207.4 L 220.8,205.0 Z" fill="#46687F" opacity="0.27"/><path d="M 261.0,253.0 L 180.9,196.0 L 184.0,211.4 L 169.4,217.3 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 143.7,232.0 L 142.2,244.1 L 141.8,256.4 Z" fill="#46687F" opacity="0.38"/><path d="M 261.0,253.0 L 189.3,272.2 L 202.5,275.5 L 194.9,286.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 177.8,325.5 L 196.6,323.4 L 196.2,342.3 Z" fill="#46687F" opacity="0.41"/><path d="M 261.0,253.0 L 234.4,321.1 L 240.3,321.6 L 245.4,324.4 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 265.0,318.0 L 271.4,311.9 L 279.5,315.4 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 296.1,325.2 L 301.8,321.4 L 307.9,318.1 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 307.2,301.1 L 301.3,287.3 L 315.9,291.0 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 339.1,291.3 L 328.7,276.1 L 346.3,270.4 Z" fill="#46687F" opacity="0.35"/><path d="M 261.0,253.0 L 328.5,256.9 L 319.9,248.5 L 327.2,238.8 Z" fill="#46687F" opacity="0.22"/></g>
+    <g transform="translate(256,256) scale(1.8961) translate(-256,-256)"><g stroke="#E6DCD1" stroke-width="7" paint-order="stroke">
+      <rect x="247" y="190" width="18" height="130" fill="#1C3B53"/>
+      <path d="M 242,314 h28 v22 l-14,16 l-14,-16 Z" fill="#1C3B53"/>
+    </g>
+    <g transform="translate(256,194) scale(0.62)">
+      <path d="M -44,4 L -50,-38 L -27,-17 L -13,-44 L 0,-19 L 13,-44 L 27,-17 L 50,-38 L 44,4 Z" fill="#1C3B53"/>
+      <rect x="-48" y="4" width="96" height="14" rx="3" fill="#1C3B53"/>
+    </g>
+    <text x="256" y="274" text-anchor="middle" font-family="'DejaVu Sans Condensed','Arial Narrow',Arial,Helvetica,sans-serif"
+          font-size="62" font-weight="700" letter-spacing="1" fill="#1C3B53"
+          stroke="#E6DCD1" stroke-width="9" paint-order="stroke">PRC</text></g>
+  </g>
+  <circle cx="256" cy="256" r="243" fill="none" stroke="#46687F" stroke-width="6" opacity=".9"/>
+</svg>
+    <div class="txt">
+      <p class="eyebrow">Prometheus Research Corporation &middot; Site-&#9608;&#9608;&#9608;</p>
+      <h1>Orientation</h1>
+      <p class="lede">Everything you need to know about PRC, on one page. Read the first
+        section and you can start playing tonight. <b>Nothing here is a test and none of it
+        is homework.</b></p>
+      <div class="status">
+        <span class="live">Discord <b>open now</b></span>
+        <span class="hot">Doors open <b>Sat 31 Oct</b></span>
+        <span>Founder rank <b>closes at the doors</b></span>
+      </div>
+    </div>
+  </header>
+</div>
+
+<nav class="jump" aria-label="Sections">
+  <div class="wrap">
+    <a href="#start">Start here</a>
+    <a href="#what">What this is</a>
+    <a href="#roles">Branches and ranks</a>
+    <a href="#departments">Departments</a>
+    <a href="#camp">The camp</a>
+    <a href="#week">The week</a>
+    <a href="#works">The works programme</a>
+    <a href="#conduct">Conduct</a>
+    <a href="#channels">Channels</a>
+    <a href="#words">Words</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<main>
+
+<section id="start">
+  <p class="rail">Sixty seconds</p>
+  <h2>If you read nothing else, read this</h2>
+  <p>You do not have to apply to anything, and you do not have to know any lore. The camp
+    takes anyone off the boat. Three steps and you are playing.</p>
+  <ol class="steps">
+    <li class="step">
+      <span class="n">1</span>
+      <div>
+        <h4>Say hello in the camp</h4>
+        <p>Go to <code>#cd-common</code>. That is the detainee camp and it is open to you
+          right now, with no application and no waiting. Everyone starts as a
+          <b>Contingent Asset</b>, which is just the Corporation's word for somebody it has
+          not assigned to a job yet.</p>
+      </div>
+    </li>
+    <li class="step">
+      <span class="n">2</span>
+      <div>
+        <h4>Decide if you want a job</h4>
+        <p>Five departments do different things. Scroll down to
+          <a href="#departments">Departments</a> and pick whichever sounds like something
+          you would actually enjoy doing on a Tuesday evening, not whichever sounds most
+          impressive.</p>
+      </div>
+    </li>
+    <li class="step">
+      <span class="n">3</span>
+      <div>
+        <h4>Run /apply</h4>
+        <p>Five questions, two minutes, and you get an answer inside 24 hours either way.
+          Staying in the camp instead is a completely normal choice and quite a lot of
+          people never leave it.</p>
+      </div>
+    </li>
+  </ol>
+  <div class="stamp">
+    <p>Still not sure? Post in <code>#faq-desk</code> and say what you would rather be
+      <b>doing</b>, not what you would rather be <b>called</b>. Somebody will point you at
+      a department.</p>
+  </div>
+</section>
+
+<section id="what">
+  <p class="rail">The premise</p>
+  <h2>What this actually is</h2>
+  <p>PRC is a roleplay group on Roblox. You play somebody who works at a secret site on an
+    island. A government-funded company holds the contract, and the place is being built
+    from nothing.</p>
+  <p><b>The site is not finished. That is the whole point.</b> Most groups in this genre
+    hand you a finished facility and you walk the same corridors forever. Here the map is
+    the scoreboard.</p>
+
+  <div class="loop">
+    <div class="node">
+      <div class="k">1 &middot; Dig</div>
+      <div class="v">Detainees work faces in <b>the Cut</b> and haul spoil to the skip.
+        Everything the site is built from comes out of the ground.</div>
+    </div>
+    <div class="node">
+      <div class="k">2 &middot; Move</div>
+      <div class="v">Logistics run the truck, the docks and the stores. Nothing reaches a
+        build site on its own.</div>
+    </div>
+    <div class="node">
+      <div class="k">3 &middot; Build</div>
+      <div class="v">Engineering spend the material on <b>real structures</b> and place
+        them on the live map.</div>
+    </div>
+    <div class="node">
+      <div class="k">4 &middot; Unlock</div>
+      <div class="v">A community bar fills as everyone digs. When it fills, <b>a new part
+        of the site opens for everyone, permanently.</b></div>
+    </div>
+  </div>
+
+  <div class="stamp">
+    <p><b>Nothing resets.</b> What gets built stays built. The site you are playing in six
+      months from now is the one people actually dug out, and your name is on the part you
+      helped place.</p>
+  </div>
+
+  <h3>What is here on day one</h3>
+  <p>A supply pier, a detainee camp, an open excavation called <b>the Cut</b>, and an adit
+    driven into the eastern mountain. That is it. Everything else on the plan is scheduled,
+    funded and not yet built.</p>
+  <p class="dim">And there is something below the fourth floor that has been here longer
+    than any of us. Nobody is going to explain that one yet.</p>
+</section>
+
+<section id="roles">
+  <p class="rail">The question everybody asks</p>
+  <h2>Branches and ranks are two different things</h2>
+  <p>This trips up almost everyone, and it is genuinely simple once somebody separates the
+    two words. You hold <b>one of each</b>.</p>
+
+  <div class="split">
+    <div class="half">
+      <div class="k">The first thing you hold</div>
+      <h4>Branch</h4>
+      <p><b>What you do.</b> Which department you are in. There are five you can be in, and
+        you are in exactly one of them.</p>
+      <ul>
+        <li>Administrative</li>
+        <li>Facilities</li>
+        <li>Security</li>
+        <li>Mobile Vanguard</li>
+        <li>Detainee Labour</li>
+      </ul>
+    </div>
+    <div class="half b">
+      <div class="k">The second thing you hold</div>
+      <h4>Rank</h4>
+      <p><b>How far up you are.</b> Six steps, and they are the same six steps in every
+        single department.</p>
+      <ul>
+        <li>Trial, your first week</li>
+        <li>Member, works on their own</li>
+        <li>Specialist</li>
+        <li>Supervisor, runs a shift</li>
+        <li>Deputy</li>
+        <li>Director, runs the department</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>So why are there letters on everything</h3>
+  <p>Because the <b>names</b> change between departments and the <b>level</b> does not.
+    Facilities calls its shift runner a Foreman. Administrative calls theirs a Records
+    Supervisor. One of those sounds more senior than the other, and they are the exact same
+    level.</p>
+  <p>The letter is there so nobody argues about it. A Foreman and a Records Supervisor are
+    both <b>G3</b>. Neither one outranks the other. That is the entire reason the grading
+    system exists, and you can go a long time without ever needing to use the letters
+    yourself.</p>
+
+  <div class="stamp">
+    <p><b>The short version:</b> your branch is your job, your rank is how far up you are,
+      and the letter is just a label so that two people with different job titles know
+      they are equals.</p>
+  </div>
+
+  <details class="reveal">
+    <summary>Show me the full grade table</summary>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr><th>Grade</th><th>Role</th><th>What somebody at this level does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="m">none</td><td><b>Contingent Asset</b></td><td>Everybody who joins. Not assigned to a department yet. You keep this forever, even after you are posted.</td></tr>
+          <tr><td class="m">G0</td><td><b>Initiate</b></td><td>Your first week. Supervised, and short.</td></tr>
+          <tr><td class="m">G1</td><td><b>Operator</b></td><td>Does the work on their own, on a task somebody else set.</td></tr>
+          <tr><td class="m">G3</td><td><b>Custodian</b></td><td>Runs a shift and the people on it. First rank with authority over anyone.</td></tr>
+          <tr><td class="m">G5</td><td><b>Director</b></td><td>Owns the department. Its handbook, its roster, its numbers. Also a command seat.</td></tr>
+          <tr><td class="m">C1</td><td><b>Overseer</b></td><td>Duty officer. Authorises operations, chairs promotion boards, handles incidents.</td></tr>
+          <tr><td class="m">C2</td><td><b>Continuum Director</b></td><td>Works across departments. Runs the site when the Observer is not on.</td></tr>
+          <tr><td class="m">C3</td><td><b>Observer</b></td><td>Final say on canon, systems and the calendar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cap">G2 and G4 exist as steps inside Operator and Custodian. The camp runs a
+      separate ladder, D0 to D3, covered further down.</p>
+  </details>
+
+  <h3>How you move up</h3>
+  <p>Three things, and you need all three or it does not happen.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>What</th><th>Why it is there</th></tr></thead>
+      <tbody>
+        <tr><td><b>Time in grade</b></td><td>Seven days at G0, 21 at G1, 30 at G3. Run <code>/record</code> and the bot tells you exactly how many days you have left.</td></tr>
+        <tr><td><b>A number somebody can point at</b></td><td>Shifts worked, modules placed, escorts run, reports filed. Something countable, so nobody has to argue about who deserves it.</td></tr>
+        <tr><td><b>A sponsor</b></td><td>Somebody above you puts their name on it. Promotions are posted publicly with the numbers attached.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="cap" style="margin-top:12px">Nobody signs their own promotion. The bot will
+    refuse it, for anyone, including the person who runs the group.</p>
+
+  <h3>Clearance, briefly</h3>
+  <p>Clearance follows from your rank automatically. <b>There is no application for it</b>
+    and asking for it does nothing, which is why there is no channel for requesting it.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Level</th><th>Opens</th><th>Who has it</th></tr></thead>
+      <tbody>
+        <tr><td class="m">CL-1</td><td>The camp, the pier, the Cut, Floor 1</td><td>Everyone, from day one</td></tr>
+        <tr><td class="m">CL-2</td><td>The adit works, restricted stores, the tower desk</td><td>G3 and above. Security and Vanguard reach it earlier, because the far side of the Wire is where they work.</td></tr>
+        <tr><td class="m">CL-3</td><td>Whatever Floor 2 turns out to be</td><td>Not rankable into. Appointed.</td></tr>
+        <tr><td class="m">CL-4</td><td>Everything</td><td>Two people</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="departments">
+  <p class="rail">Pick one</p>
+  <h2>The departments</h2>
+  <p>Tap a department to see what you would actually be doing. Go with whichever sounds like
+    a good evening, not whichever sounds most important.</p>
+
+  <div class="picker" id="picker">
+    <button type="button" class="pick" data-b="adm" aria-pressed="true"><svg class="seal" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><clipPath id="administrative_iic"><circle cx="256" cy="256" r="236"/></clipPath></defs>
+  <circle cx="256" cy="256" r="250" fill="#1C3B53"/>
+  <circle cx="256" cy="256" r="236" fill="#E6DCD1"/>
+  <g clip-path="url(#administrative_iic)">
+    <g transform="translate(256,256) scale(2.0171) translate(-256,-256)"><path d="M 261.0,253.0 L 354.6,253.0 L 352.4,242.2 L 352.0,231.1 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 325.9,222.6 L 314.9,218.6 L 315.9,207.0 Z" fill="#46687F" opacity="0.32"/><path d="M 261.0,253.0 L 307.1,189.3 L 293.3,199.1 L 295.4,182.3 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 287.0,137.6 L 277.3,136.8 L 267.8,134.9 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 251.1,192.1 L 247.1,199.5 L 240.1,194.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 231.1,198.0 L 229.9,207.4 L 220.8,205.0 Z" fill="#46687F" opacity="0.27"/><path d="M 261.0,253.0 L 180.9,196.0 L 184.0,211.4 L 169.4,217.3 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 143.7,232.0 L 142.2,244.1 L 141.8,256.4 Z" fill="#46687F" opacity="0.38"/><path d="M 261.0,253.0 L 189.3,272.2 L 202.5,275.5 L 194.9,286.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 177.8,325.5 L 196.6,323.4 L 196.2,342.3 Z" fill="#46687F" opacity="0.41"/><path d="M 261.0,253.0 L 234.4,321.1 L 240.3,321.6 L 245.4,324.4 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 265.0,318.0 L 271.4,311.9 L 279.5,315.4 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 296.1,325.2 L 301.8,321.4 L 307.9,318.1 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 307.2,301.1 L 301.3,287.3 L 315.9,291.0 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 339.1,291.3 L 328.7,276.1 L 346.3,270.4 Z" fill="#46687F" opacity="0.35"/><path d="M 261.0,253.0 L 328.5,256.9 L 319.9,248.5 L 327.2,238.8 Z" fill="#46687F" opacity="0.22"/></g>
+    <g transform="translate(256,256) scale(1.8961) translate(-256,-256)"><g transform="rotate(-30 256 256)">
+      <g stroke="#E6DCD1" stroke-width="7" paint-order="stroke">
+        <path d="M 243,226 v104 h13 v-16 h20 v-17 h-20 v-14 h26 v-17 h-26 v-40 Z" fill="#1C3B53"/>
+      </g>
+      <g stroke="#E6DCD1" stroke-width="7" paint-order="stroke">
+        <circle cx="250" cy="204" r="35" fill="#1C3B53"/>
+      </g>
+      <circle cx="250" cy="204" r="14" fill="#E6DCD1"/>
+    </g></g>
+  </g>
+  <circle cx="256" cy="256" r="243" fill="none" stroke="#46687F" stroke-width="6" opacity=".9"/>
+</svg><span class="nm">Administrative</span><span class="sub">ADM</span></button>
+    <button type="button" class="pick" data-b="fac" aria-pressed="false"><svg class="seal" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><clipPath id="facilities_iic"><circle cx="256" cy="256" r="236"/></clipPath></defs>
+  <circle cx="256" cy="256" r="250" fill="#1C3B53"/>
+  <circle cx="256" cy="256" r="236" fill="#E6DCD1"/>
+  <g clip-path="url(#facilities_iic)">
+    <g transform="translate(256,256) scale(2.0171) translate(-256,-256)"><path d="M 261.0,253.0 L 354.6,253.0 L 352.4,242.2 L 352.0,231.1 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 325.9,222.6 L 314.9,218.6 L 315.9,207.0 Z" fill="#46687F" opacity="0.32"/><path d="M 261.0,253.0 L 307.1,189.3 L 293.3,199.1 L 295.4,182.3 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 287.0,137.6 L 277.3,136.8 L 267.8,134.9 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 251.1,192.1 L 247.1,199.5 L 240.1,194.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 231.1,198.0 L 229.9,207.4 L 220.8,205.0 Z" fill="#46687F" opacity="0.27"/><path d="M 261.0,253.0 L 180.9,196.0 L 184.0,211.4 L 169.4,217.3 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 143.7,232.0 L 142.2,244.1 L 141.8,256.4 Z" fill="#46687F" opacity="0.38"/><path d="M 261.0,253.0 L 189.3,272.2 L 202.5,275.5 L 194.9,286.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 177.8,325.5 L 196.6,323.4 L 196.2,342.3 Z" fill="#46687F" opacity="0.41"/><path d="M 261.0,253.0 L 234.4,321.1 L 240.3,321.6 L 245.4,324.4 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 265.0,318.0 L 271.4,311.9 L 279.5,315.4 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 296.1,325.2 L 301.8,321.4 L 307.9,318.1 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 307.2,301.1 L 301.3,287.3 L 315.9,291.0 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 339.1,291.3 L 328.7,276.1 L 346.3,270.4 Z" fill="#46687F" opacity="0.35"/><path d="M 261.0,253.0 L 328.5,256.9 L 319.9,248.5 L 327.2,238.8 Z" fill="#46687F" opacity="0.22"/></g>
+    <g transform="translate(256,256) scale(1.8961) translate(-256,-256)"><g stroke="#E6DCD1" stroke-width="7" paint-order="stroke">
+      <path d="M 338.0,277.7 L 335.6,263.1 L 320.1,263.8 L 315.0,253.8 L 324.7,241.7 L 314.3,231.3 L 302.2,241.0 L 292.2,235.9 L 292.9,220.4 L 278.3,218.0 L 274.2,233.0 L 263.2,234.8 L 254.6,221.8 L 241.5,228.5 L 247.0,243.0 L 239.0,251.0 L 224.5,245.5 L 217.8,258.6 L 230.8,267.2 L 229.0,278.2 L 214.0,282.3 L 216.4,296.9 L 231.9,296.2 L 237.0,306.2 L 227.3,318.3 L 237.7,328.7 L 249.8,319.0 L 259.8,324.1 L 259.1,339.6 L 273.7,342.0 L 277.8,327.0 L 288.8,325.2 L 297.4,338.2 L 310.5,331.5 L 305.0,317.0 L 313.0,309.0 L 327.5,314.5 L 334.2,301.4 L 321.2,292.8 L 323.0,281.8 Z M 297.0,280.0 A 21,21 0 1,0 255.0,280.0 A 21,21 0 1,0 297.0,280.0 Z" fill="#1C3B53" fill-rule="evenodd"/>
+    </g>
+    <g stroke="#E6DCD1" stroke-width="7" paint-order="stroke"><g transform="rotate(38 226 206)"><path d="M 198,162 L 198,206 A 28,28 0 0,0 254,206 L 254,162 L 238,162 L 238,197 A 12,12 0 0,1 214,197 L 214,162 Z" fill="#1C3B53"/><rect x="216" y="206" width="20" height="114" rx="9" fill="#1C3B53"/></g></g></g>
+  </g>
+  <circle cx="256" cy="256" r="243" fill="none" stroke="#46687F" stroke-width="6" opacity=".9"/>
+</svg><span class="nm">Facilities</span><span class="sub">FAC</span></button>
+    <button type="button" class="pick" data-b="sec" aria-pressed="false"><svg class="seal" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><clipPath id="security_iic"><circle cx="256" cy="256" r="236"/></clipPath></defs>
+  <circle cx="256" cy="256" r="250" fill="#1C3B53"/>
+  <circle cx="256" cy="256" r="236" fill="#E6DCD1"/>
+  <g clip-path="url(#security_iic)">
+    <g transform="translate(256,256) scale(2.0171) translate(-256,-256)"><path d="M 261.0,253.0 L 354.6,253.0 L 352.4,242.2 L 352.0,231.1 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 325.9,222.6 L 314.9,218.6 L 315.9,207.0 Z" fill="#46687F" opacity="0.32"/><path d="M 261.0,253.0 L 307.1,189.3 L 293.3,199.1 L 295.4,182.3 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 287.0,137.6 L 277.3,136.8 L 267.8,134.9 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 251.1,192.1 L 247.1,199.5 L 240.1,194.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 231.1,198.0 L 229.9,207.4 L 220.8,205.0 Z" fill="#46687F" opacity="0.27"/><path d="M 261.0,253.0 L 180.9,196.0 L 184.0,211.4 L 169.4,217.3 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 143.7,232.0 L 142.2,244.1 L 141.8,256.4 Z" fill="#46687F" opacity="0.38"/><path d="M 261.0,253.0 L 189.3,272.2 L 202.5,275.5 L 194.9,286.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 177.8,325.5 L 196.6,323.4 L 196.2,342.3 Z" fill="#46687F" opacity="0.41"/><path d="M 261.0,253.0 L 234.4,321.1 L 240.3,321.6 L 245.4,324.4 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 265.0,318.0 L 271.4,311.9 L 279.5,315.4 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 296.1,325.2 L 301.8,321.4 L 307.9,318.1 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 307.2,301.1 L 301.3,287.3 L 315.9,291.0 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 339.1,291.3 L 328.7,276.1 L 346.3,270.4 Z" fill="#46687F" opacity="0.35"/><path d="M 261.0,253.0 L 328.5,256.9 L 319.9,248.5 L 327.2,238.8 Z" fill="#46687F" opacity="0.22"/></g>
+    <g transform="translate(256,256) scale(1.8961) translate(-256,-256)"><g stroke="#E6DCD1" stroke-width="7" paint-order="stroke">
+      <path d="M 196,212 a 60,60 0 0,1 120,0" fill="none" stroke="#1C3B53" stroke-width="14"/>
+    </g>
+    <rect x="208" y="204" width="12" height="88" fill="#1C3B53"/><path d="M 208,292 h12 l-6,17 Z" fill="#1C3B53"/><rect x="231" y="204" width="12" height="88" fill="#1C3B53"/><path d="M 231,292 h12 l-6,17 Z" fill="#1C3B53"/><rect x="254" y="204" width="12" height="88" fill="#1C3B53"/><path d="M 254,292 h12 l-6,17 Z" fill="#1C3B53"/><rect x="277" y="204" width="12" height="88" fill="#1C3B53"/><path d="M 277,292 h12 l-6,17 Z" fill="#1C3B53"/><rect x="300" y="204" width="12" height="88" fill="#1C3B53"/><path d="M 300,292 h12 l-6,17 Z" fill="#1C3B53"/>
+    <rect x="202" y="232" width="108" height="12" fill="#1C3B53"/>
+    <rect x="202" y="264"  width="108" height="12" fill="#1C3B53"/>
+    <circle cx="256" cy="250" r="20" fill="#7A1E28" stroke="#E6DCD1" stroke-width="7"/></g>
+  </g>
+  <circle cx="256" cy="256" r="243" fill="none" stroke="#7A1E28" stroke-width="6" opacity=".9"/>
+</svg><span class="nm">Security</span><span class="sub">SEC</span></button>
+    <button type="button" class="pick" data-b="mvf" aria-pressed="false"><svg class="seal" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><clipPath id="mobilevanguard_iic"><circle cx="256" cy="256" r="236"/></clipPath></defs>
+  <circle cx="256" cy="256" r="250" fill="#1C3B53"/>
+  <circle cx="256" cy="256" r="236" fill="#E6DCD1"/>
+  <g clip-path="url(#mobilevanguard_iic)">
+    <g transform="translate(256,256) scale(2.0171) translate(-256,-256)"><path d="M 261.0,253.0 L 354.6,253.0 L 352.4,242.2 L 352.0,231.1 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 325.9,222.6 L 314.9,218.6 L 315.9,207.0 Z" fill="#46687F" opacity="0.32"/><path d="M 261.0,253.0 L 307.1,189.3 L 293.3,199.1 L 295.4,182.3 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 287.0,137.6 L 277.3,136.8 L 267.8,134.9 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 251.1,192.1 L 247.1,199.5 L 240.1,194.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 231.1,198.0 L 229.9,207.4 L 220.8,205.0 Z" fill="#46687F" opacity="0.27"/><path d="M 261.0,253.0 L 180.9,196.0 L 184.0,211.4 L 169.4,217.3 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 143.7,232.0 L 142.2,244.1 L 141.8,256.4 Z" fill="#46687F" opacity="0.38"/><path d="M 261.0,253.0 L 189.3,272.2 L 202.5,275.5 L 194.9,286.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 177.8,325.5 L 196.6,323.4 L 196.2,342.3 Z" fill="#46687F" opacity="0.41"/><path d="M 261.0,253.0 L 234.4,321.1 L 240.3,321.6 L 245.4,324.4 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 265.0,318.0 L 271.4,311.9 L 279.5,315.4 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 296.1,325.2 L 301.8,321.4 L 307.9,318.1 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 307.2,301.1 L 301.3,287.3 L 315.9,291.0 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 339.1,291.3 L 328.7,276.1 L 346.3,270.4 Z" fill="#46687F" opacity="0.35"/><path d="M 261.0,253.0 L 328.5,256.9 L 319.9,248.5 L 327.2,238.8 Z" fill="#46687F" opacity="0.22"/></g>
+    <g transform="translate(256,256) scale(1.8961) translate(-256,-256)"><path d="M 256,166 L 294,240 L 271,232 L 271,268
+                        L 241,268 L 241,232 L 218,240 Z"
+          fill="#1C3B53" stroke="#E6DCD1" stroke-width="7" paint-order="stroke"/>
+    <path d="M 200,280 L 256,311 L 312,280 L 312,300
+             L 256,331 L 200,300 Z" fill="#7A1E28"
+          stroke="#E6DCD1" stroke-width="6" paint-order="stroke"/>
+    <path d="M 200,316 L 256,347 L 312,316 L 312,336
+             L 256,367 L 200,336 Z" fill="#1C3B53" opacity=".5"/></g>
+  </g>
+  <circle cx="256" cy="256" r="243" fill="none" stroke="#7A1E28" stroke-width="6" opacity=".9"/>
+</svg><span class="nm">Mobile Vanguard</span><span class="sub">MVF</span></button>
+    <button type="button" class="pick" data-b="cd" aria-pressed="false"><svg class="seal" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><clipPath id="detaineelabour_iic"><circle cx="256" cy="256" r="236"/></clipPath></defs>
+  <circle cx="256" cy="256" r="250" fill="#1C3B53"/>
+  <circle cx="256" cy="256" r="236" fill="#E6DCD1"/>
+  <g clip-path="url(#detaineelabour_iic)">
+    <g transform="translate(256,256) scale(2.0171) translate(-256,-256)"><path d="M 261.0,253.0 L 354.6,253.0 L 352.4,242.2 L 352.0,231.1 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 325.9,222.6 L 314.9,218.6 L 315.9,207.0 Z" fill="#46687F" opacity="0.32"/><path d="M 261.0,253.0 L 307.1,189.3 L 293.3,199.1 L 295.4,182.3 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 287.0,137.6 L 277.3,136.8 L 267.8,134.9 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 251.1,192.1 L 247.1,199.5 L 240.1,194.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 231.1,198.0 L 229.9,207.4 L 220.8,205.0 Z" fill="#46687F" opacity="0.27"/><path d="M 261.0,253.0 L 180.9,196.0 L 184.0,211.4 L 169.4,217.3 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 143.7,232.0 L 142.2,244.1 L 141.8,256.4 Z" fill="#46687F" opacity="0.38"/><path d="M 261.0,253.0 L 189.3,272.2 L 202.5,275.5 L 194.9,286.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 177.8,325.5 L 196.6,323.4 L 196.2,342.3 Z" fill="#46687F" opacity="0.41"/><path d="M 261.0,253.0 L 234.4,321.1 L 240.3,321.6 L 245.4,324.4 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 265.0,318.0 L 271.4,311.9 L 279.5,315.4 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 296.1,325.2 L 301.8,321.4 L 307.9,318.1 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 307.2,301.1 L 301.3,287.3 L 315.9,291.0 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 339.1,291.3 L 328.7,276.1 L 346.3,270.4 Z" fill="#46687F" opacity="0.35"/><path d="M 261.0,253.0 L 328.5,256.9 L 319.9,248.5 L 327.2,238.8 Z" fill="#46687F" opacity="0.22"/></g>
+    <g transform="translate(256,256) scale(1.8961) translate(-256,-256)"><g stroke="#E6DCD1" stroke-width="7" paint-order="stroke">
+      <rect x="247" y="194" width="18" height="88" fill="#1C3B53"/>
+      <path d="M 230,168 h52 v20 h-17 v12 h-18 v-12 h-17 Z" fill="#1C3B53"/>
+      <path d="M 220,278 h72 v30 q 0,34 -36,44 q -36,-10 -36,-44 Z" fill="#1C3B53"/>
+    </g>
+    <rect x="234" y="290" width="44" height="9" rx="3" fill="#E6DCD1" opacity=".7"/></g>
+  </g>
+  <circle cx="256" cy="256" r="243" fill="none" stroke="#46687F" stroke-width="6" opacity=".9"/>
+</svg><span class="nm">Detainee Labour</span><span class="sub">CD</span></button>
+    <button type="button" class="pick" data-b="cmd" aria-pressed="false"><svg class="seal" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><clipPath id="sitecommand_iic"><circle cx="256" cy="256" r="236"/></clipPath></defs>
+  <circle cx="256" cy="256" r="250" fill="#1C3B53"/>
+  <circle cx="256" cy="256" r="236" fill="#E6DCD1"/>
+  <g clip-path="url(#sitecommand_iic)">
+    <g transform="translate(256,256) scale(2.0171) translate(-256,-256)"><path d="M 261.0,253.0 L 354.6,253.0 L 352.4,242.2 L 352.0,231.1 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 325.9,222.6 L 314.9,218.6 L 315.9,207.0 Z" fill="#46687F" opacity="0.32"/><path d="M 261.0,253.0 L 307.1,189.3 L 293.3,199.1 L 295.4,182.3 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 287.0,137.6 L 277.3,136.8 L 267.8,134.9 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 251.1,192.1 L 247.1,199.5 L 240.1,194.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 231.1,198.0 L 229.9,207.4 L 220.8,205.0 Z" fill="#46687F" opacity="0.27"/><path d="M 261.0,253.0 L 180.9,196.0 L 184.0,211.4 L 169.4,217.3 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 143.7,232.0 L 142.2,244.1 L 141.8,256.4 Z" fill="#46687F" opacity="0.38"/><path d="M 261.0,253.0 L 189.3,272.2 L 202.5,275.5 L 194.9,286.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 177.8,325.5 L 196.6,323.4 L 196.2,342.3 Z" fill="#46687F" opacity="0.41"/><path d="M 261.0,253.0 L 234.4,321.1 L 240.3,321.6 L 245.4,324.4 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 265.0,318.0 L 271.4,311.9 L 279.5,315.4 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 296.1,325.2 L 301.8,321.4 L 307.9,318.1 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 307.2,301.1 L 301.3,287.3 L 315.9,291.0 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 339.1,291.3 L 328.7,276.1 L 346.3,270.4 Z" fill="#46687F" opacity="0.35"/><path d="M 261.0,253.0 L 328.5,256.9 L 319.9,248.5 L 327.2,238.8 Z" fill="#46687F" opacity="0.22"/></g>
+    <g transform="translate(256,256) scale(1.8961) translate(-256,-256)"><g transform="translate(256,240) scale(1.05)">
+      <path d="M -44,4 L -50,-38 L -27,-17 L -13,-44 L 0,-19 L 13,-44 L 27,-17 L 50,-38 L 44,4 Z" fill="#1C3B53"/>
+      <rect x="-48" y="4" width="96" height="14" rx="3" fill="#1C3B53"/>
+    </g>
+    <g stroke="#E6DCD1" stroke-width="7" paint-order="stroke">
+      <rect x="204" y="282" width="104" height="13" rx="4" fill="#1C3B53"/>
+      <rect x="222" y="306" width="68" height="13" rx="4" fill="#1C3B53"/>
+    </g></g>
+  </g>
+  <circle cx="256" cy="256" r="243" fill="none" stroke="#46687F" stroke-width="6" opacity=".9"/>
+</svg><span class="nm">Site Command</span><span class="sub">CMD &middot; closed</span></button>
+  </div>
+
+  <div class="detail" id="detail" aria-live="polite"></div>
+</section>
+
+<section id="camp">
+  <p class="rail">The route nobody expects</p>
+  <h2>Starting in the camp is not starting at the bottom</h2>
+  <p>Detainee Labour takes anyone, instantly, with no application. That sounds like the
+    consolation prize and it is not. The camp has its own ladder, its own economy and its
+    own way out, and a released detainee can walk into any department in the group.</p>
+
+  <ul class="ladder">
+    <li><span class="name">D0 Unprocessed</span><span class="what">You step off the boat. A number and a jumpsuit.</span></li>
+    <li><span class="name">D1 Detainee</span><span class="what">Processing takes about sixty seconds. Now you have tools, a face to work, credits, and the commissary.</span></li>
+    <li><span class="name">D2 Trusty</span><span class="what">Three clean shifts at output with no infractions. Unescorted inside the camp, the better commissary, and you can hold a camp job like cook, orderly or clerk.</span></li>
+    <li><span class="name">D3 Ganger</span><span class="what">An overseer signs off. You run a gang of four, you choose which face to work, and you take a cut of what the gang pulls out.</span></li>
+    <li class="top"><span class="name">Time&#8209;Served</span><span class="what">A release board at a credit threshold. You leave the camp, and <b>you may apply to any department with a recommendation and skip the trial week entirely.</b></span></li>
+  </ul>
+
+  <div class="stamp">
+    <p>So you can start as a prisoner with a number and end up a Security sergeant. A fair
+      number of the staff will have come up exactly that way, and the group is built so
+      that route stays open.</p>
+  </div>
+</section>
+
+<section id="week">
+  <p class="rail">The rhythm</p>
+  <h2>The week</h2>
+  <p>Two scheduled operations, same days, same time, every week. Everything else is whenever
+    you feel like logging in.</p>
+  <div class="week">
+    <div class="day">
+      <div class="d">Wednesday</div>
+      <h4>Works shift</h4>
+      <p>A mass dig. Everyone on a face at once, and the bar visibly moves during the
+        session.</p>
+      <div class="t">19:00 UTC &middot; 60 to 90 min</div>
+    </div>
+    <div class="day">
+      <div class="d">Saturday</div>
+      <h4>Site operation</h4>
+      <p>The headline. Rotates through a full shift, a CI raid, a riot, a Vanguard
+        selection, an inspection, and occasionally a find.</p>
+      <div class="t">19:00 UTC &middot; 90 min</div>
+    </div>
+    <div class="day">
+      <div class="d">Sunday</div>
+      <h4>Promotion board</h4>
+      <p>Public, ten minutes, numbers attached. You do not have to attend your own, and
+        nothing is decided in private.</p>
+      <div class="t">Short</div>
+    </div>
+  </div>
+  <p class="cap" style="margin-top:14px">That is the whole commitment. Two evenings a week
+    if you want them, and nobody is counting if you miss one.</p>
+</section>
+
+<section id="works">
+  <p class="rail">The scoreboard</p>
+  <h2>The works programme</h2>
+  <p>This is the number the whole group plays against. It gets posted every morning whether
+    it moved or not, because a number that did not move is a reason to log in.</p>
+
+  <div class="board">
+    <pre><span class="bar">&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;&#9617;</span>   41.2%   &#9650; +1.8% / 24h
+
+DUG         412 t to the skip           &#9650; +18
+BUILT       6 modules placed            &#9650; +1
+BUDGET      240 units available         &#9660; unspent 3 days
+NEXT NODE   Wire, north run    68%      needs timber
+
+DRIFT       0.41                        &#9650;</pre>
+  </div>
+  <p class="cap">Posted daily in <code>#works-programme</code>. Example figures.</p>
+
+  <h3>What moves it</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>This</th><th>Does this</th></tr></thead>
+      <tbody>
+        <tr><td><b>Digging</b></td><td>Raises the tonnage, which raises the bar.</td></tr>
+        <tr><td><b>Building</b></td><td>Spends the budget and places a module on the map, permanently.</td></tr>
+        <tr><td><b>A CI raid</b></td><td>Steals material and <b>drops the bar</b>. This is on purpose. It is what gives the next works shift a reason to exist.</td></tr>
+        <tr><td><b>The bar filling</b></td><td>A new part of the site opens for everybody, forever.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The supply vote</h3>
+  <p>When a ship is due, <code>#manifest-vote</code> gets three options for what it carries
+    and the whole server votes by reacting. One finishes something, one keeps everything
+    ticking, one is the only route to the deep materials. Twenty four hours, most votes
+    wins.</p>
+  <p class="dim">The manifest is public, and it does not stay inside this server. Make of
+    that what you will.</p>
+
+  <h3>And the number nobody will explain</h3>
+  <p>There is a line on the board marked <b>DRIFT</b>. It goes up. If you ask about it you
+    will not get an answer, and that is not staff being coy, it is the honest position for
+    now.</p>
+</section>
+
+<section id="conduct">
+  <p class="rail">The standard</p>
+  <h2>How we treat each other</h2>
+  <p>One line, and everything else follows from it.</p>
+  <div class="stamp">
+    <p><b>Everyone here is a real person. How you treat them matters regardless of what
+      either of you is pretending to be in-game.</b></p>
+  </div>
+  <p style="margin-top:16px">In-character conflict is the game working. Security arrest
+    detainees, raiders take your material, command makes calls that annoy people. None of
+    that is a reason to be unkind to the actual human on the other end of it.</p>
+  <ul class="ladder" style="margin-top:4px">
+    <li><span class="name">Anyone can stop a scene</span><span class="what">Say "out of character" and it stops. No questions, no consequence, and no exception for rank. If somebody says it and the scene keeps going, tell staff.</span></li>
+    <li><span class="name">Being new is not a fault</span><span class="what">Nobody knew any of this on day one. If somebody is short with you for asking a basic question, that is on them.</span></li>
+    <li><span class="name">People play differently</span><span class="what">Some are here for the roleplay, some for the fights, some to chase the lore. All fine. Do not make anyone feel their way of playing is the wrong one.</span></li>
+    <li><span class="name">Staff are not exempt</span><span class="what">Everyone goes through the same process, including the people who run the place.</span></li>
+  </ul>
+  <h3>The things that get acted on regardless</h3>
+  <p>Targeted harassment, discrimination of any kind, threats including the ones framed as
+    a joke, sharing somebody's personal information, and using a staff role to pressure
+    anyone. Those are not grey areas and context does not change them.</p>
+  <h3>If something goes wrong</h3>
+  <p>Report it with specifics and you get an answer inside 48 hours, faster if anyone's
+    safety is involved. Both sides get heard. Every outcome is logged with a reason and a
+    name attached, and you can always ask what happened and why. If you think a decision
+    was wrong you can appeal once, to the <b>Arbiter</b>, who was not part of the original
+    call.</p>
+  <p class="dim">This is a prison camp in a horror setting. The fiction is grim. The group
+    is not.</p>
+</section>
+
+<section id="channels">
+  <p class="rail">The map</p>
+  <h2>Where things are</h2>
+  <p>You can see more channels as you go. None of them are hidden to be mysterious, they
+    just open when they are relevant to you.</p>
+  <div class="chan">
+    <div class="grp">
+      <div class="g">Open to everyone</div>
+      <dl>
+        <dt>#arrival-terminal</dt><dd>What this is, and how to get started tonight</dd>
+        <dt>#rules</dt><dd>The standard, and what happens when somebody falls short</dd>
+        <dt>#how-to-join</dt><dd>The departments, and the apply command</dd>
+        <dt>#orientation-files</dt><dd>Every document you are cleared for. Links, so they stay current</dd>
+        <dt>#faq-desk</dt><dd>No question is too basic. Genuinely</dd>
+        <dt>#announcements</dt><dd>Low volume, all of it matters</dd>
+      </dl>
+    </div>
+    <div class="grp">
+      <div class="g">The site at work</div>
+      <dl>
+        <dt>#works-programme</dt><dd>The bar, every morning</dd>
+        <dt>#manifest-vote</dt><dd>What the next ship carries. You decide</dd>
+        <dt>#scheduled-operations</dt><dd>Wednesday and Saturday, posted an hour ahead</dd>
+        <dt>#session-reports</dt><dd>Write up what happened. It does not need to be good</dd>
+        <dt>#cd-common</dt><dd>The camp. No rank needed, no application</dd>
+      </dl>
+    </div>
+    <div class="grp">
+      <div class="g">The record</div>
+      <dl>
+        <dt>#anomalous-registry</dt><dd>The Risk Register. Everyone reads it, Records Officers write it</dd>
+        <dt>#incident-reports</dt><dd>What the site filed about it afterwards</dd>
+        <dt>#fragment-archive</dt><dd>Things the site was not supposed to keep. Never deleted once found</dd>
+        <dt>#lore-discussion</dt><dd>The archive is the record. This is the argument</dd>
+      </dl>
+    </div>
+    <div class="grp">
+      <div class="g">Once you are posted</div>
+      <dl>
+        <dt>Your department category</dt><dd>Briefing, dispatch, roster and voice, opened by an accepted application</dd>
+        <dt>#personnel-records</dt><dd>Postings and promotions, with the numbers attached</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="words">
+  <p class="rail">The decoder</p>
+  <h2>Words you will hear</h2>
+  <p>This genre has forty years of jargon attached to it and none of it is obvious from
+    outside. Nobody expects you to know any of this.</p>
+  <label for="gsearch" class="cap" style="display:block;margin-top:4px">Search</label>
+  <input id="gsearch" class="srch" type="search" placeholder="Type a word, for example trusty or the Cut" autocomplete="off">
+  <ul class="gloss" id="gloss"></ul>
+  <p class="none" id="gnone" hidden>Nothing matches that. Ask in #faq-desk and it will get added.</p>
+</section>
+
+<section id="ask">
+  <div class="close">
+    <h3>Still stuck on something</h3>
+    <p>Ask in <code>#faq-desk</code>. There is no question in that channel that is too
+      basic, and "I do not know, I will find out" is an acceptable answer from any of us.</p>
+    <p>If you are trying to pick a department and nothing is landing, say what you would
+      rather be <b>doing</b> on an average evening and somebody will match you to one. That
+      works far better than reading the list again.</p>
+    <p class="dim">And if you have not started yet, you do not need any of this page to.
+      <code>#cd-common</code> is open, the boat does not check anything, and you can be
+      holding a tool in under a minute.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>Prometheus Research Corporation &middot; Site-<span class="redact">0000</span></span>
+  <span><b>Discord open</b> 5 October 2026</span>
+  <span><b>Doors</b> 31 October 2026</span>
+  <span>What gets built stays built</span>
+</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var BRANCHES = {
+    adm: {
+      name:"Administrative Branch", code:"ADM", seal:"adm",
+      line:"The office. The site's memory, and where the writers are.",
+      evening:[
+        "Sign people in when they arrive and give the detainees their numbers",
+        "Keep the works ledger straight so Facilities know what they can spend",
+        "Write up whatever happened at the face on Tuesday and file it",
+        "Run the archive, and decide what the Corporation admits to"
+      ],
+      suits:"You like the paperwork side of the genre. Forms, stamps, redaction, records that contradict each other.",
+      rungs:[
+        ["G0","Probationer","First week, supervised"],
+        ["G1","Clerk","Files and intake on your own"],
+        ["G3","Records Supervisor","Runs a shift and the people on it"],
+        ["G5","Registrar","Owns the department"]
+      ],
+      how:"Apply with <b>/apply</b>. One extra step: a writing sample, two paragraphs, from a prompt we give you.",
+      chan:"#adm-office"
+    },
+    fac: {
+      name:"Facilities Maintenance", code:"FAC", seal:"fac",
+      line:"The builders and the supply run. Two halves, neither junior to the other.",
+      evening:[
+        "Engineering: spend the works budget on real structures and place them on the live map",
+        "Logistics: run the truck, work the docks, keep the stores and the commissary stocked",
+        "Argue about the build order, which is most of the job",
+        "Watch something you placed get walked through by a hundred people"
+      ],
+      suits:"You build, or you like the logistics puzzle of getting material from a hole in the ground to a finished structure.",
+      rungs:[
+        ["G0","Probationer","First week, supervised"],
+        ["G1","Works Hand","Builds and hauls on your own"],
+        ["G3","Foreman","Runs a shift and the people on it"],
+        ["G5","Works Director","Owns the department"]
+      ],
+      how:"Apply with <b>/apply</b>. One extra step for Engineering: show us one thing you have built. Anything.",
+      chan:"#fac-works"
+    },
+    sec: {
+      name:"Security Division", code:"SEC", seal:"sec",
+      line:"The guards. The biggest department and the easiest one to get into.",
+      evening:[
+        "Hold the Wire and run the gate",
+        "Escort detainee gangs out to the face and back",
+        "Head counts on the hour, and contraband sweeps when something goes missing",
+        "The riot, when it comes, which it does"
+      ],
+      suits:"You want to be where things happen, you like procedure, and you are happy being the person other people have to get past.",
+      rungs:[
+        ["G0","Cadet","First week, supervised"],
+        ["G1","Officer","Stands a post on your own"],
+        ["G3","Sergeant","Runs a watch and the people on it"],
+        ["G5","Chief of Security","Owns the department"]
+      ],
+      how:"Apply with <b>/apply</b>. One extra step: a short chat about procedure. <b>No lore exam.</b> This is also the only route into Vanguard.",
+      chan:"#sec-dispatch"
+    },
+    mvf: {
+      name:"Mobile Vanguard Force", code:"MVF", seal:"mvf",
+      line:"The emergency team. Ten seats, and you cannot apply.",
+      evening:[
+        "Kit check, patrol the fjord, wait",
+        "Genuinely nothing, most nights",
+        "Then the alarm goes and for about fifteen minutes you are the only thing anyone is watching",
+        "Raids, breaches, and whatever comes up out of the adit"
+      ],
+      suits:"You would rather do nothing for an hour and then everything at once. If that sounds boring, it is, right up until it is not.",
+      rungs:[
+        ["G0","Selection","You are being watched, in public"],
+        ["G1","Vanguard","On the team"],
+        ["G3","Section Leader","Runs a section"],
+        ["G5","Vanguard Commander","Owns the department"]
+      ],
+      how:"<b>There is no application.</b> You come up through Security, get nominated, and pass a selection operation in front of everybody. The cap is ten and it stays ten.",
+      chan:"#mvf-command", shut:true
+    },
+    cd: {
+      name:"Detainee Labour", code:"CD", seal:"cd",
+      line:"The prisoners. No application, no interview, no waiting.",
+      evening:[
+        "Work a face in the Cut and haul spoil to the skip",
+        "Earn credits and days off your sentence, and spend them in the commissary",
+        "Work up to Trusty, then run a gang of four as a Ganger",
+        "Everything the site is built from comes out of your face. Every stud of it"
+      ],
+      suits:"You want to start playing in the next sixty seconds, or you want the route up that nobody expects.",
+      rungs:[
+        ["D1","Detainee","Tools, a face, credits"],
+        ["D2","Trusty","Three clean shifts. Unescorted, better shop, camp jobs"],
+        ["D3","Ganger","Runs a gang of four and takes a cut"],
+        ["out","Time-Served","Release board. Apply anywhere, skip the trial"]
+      ],
+      how:"<b>No application at all.</b> Go to #cd-common and get on the boat. The camp staff who run the place are a separate ladder, and they recruit from people who have worked it.",
+      chan:"#cd-common"
+    },
+    cmd: {
+      name:"Site Command", code:"CMD", seal:"cmd",
+      line:"Canon, the calendar, and the things nobody else can authorise.",
+      evening:[
+        "Authorise operations and handle incidents",
+        "Chair the promotion boards, in public, with the numbers attached",
+        "Decide what is canon and what is not",
+        "Hand departments to people and then stay out of their way"
+      ],
+      suits:"Not a thing you join. It is where a department director ends up after running their department well for a while.",
+      rungs:[
+        ["C1","Overseer","Duty officer"],
+        ["C3","Observer","Final say on canon and systems"]
+      ],
+      how:"<b>Not open, and it will not be.</b> There is no form. What is open right now is <b>department director</b>, which is the top of a department and a seat at command. If you want one, say so.",
+      chan:"#command-briefings", shut:true
+    }
+  };
+
+  var SEALS = {};
+  document.querySelectorAll('#picker .pick').forEach(function(btn){
+    var svg = btn.querySelector('svg');
+    if (svg) SEALS[btn.dataset.b] = svg.outerHTML;
+  });
+
+  var detail = document.getElementById('detail');
+
+  function esc(s){ return String(s); }
+
+  function render(key){
+    var b = BRANCHES[key];
+    if (!b) return;
+    var rungs = b.rungs.map(function(r){
+      return '<div><span class="g">' + r[0] + '</span><span class="r">' + r[1] +
+             '</span><span class="d">' + r[2] + '</span></div>';
+    }).join('');
+    var evening = b.evening.map(function(e){ return '<li>' + esc(e) + '</li>'; }).join('');
+    detail.innerHTML =
+      '<div class="hd">' + (SEALS[key] || '') +
+        '<div><div class="code">' + b.code + '</div><h3>' + b.name + '</h3></div>' +
+      '</div>' +
+      '<p class="line">' + esc(b.line) + '</p>' +
+      '<div class="block"><div class="k">On a normal evening</div><ul>' + evening + '</ul></div>' +
+      '<div class="block"><div class="k">It suits you if</div><p style="margin:0;color:var(--ink2);font-size:15.5px">' + esc(b.suits) + '</p></div>' +
+      '<div class="block"><div class="k">The ladder here</div><div class="rungs">' + rungs + '</div></div>' +
+      '<div class="howin' + (b.shut ? ' shut' : '') + '">' + b.how +
+        '<br><span style="font-family:var(--mono);font-size:12.5px;color:var(--ink3)">Channel: ' + b.chan + '</span></div>';
+  }
+
+  document.getElementById('picker').addEventListener('click', function(ev){
+    var btn = ev.target.closest('.pick');
+    if (!btn) return;
+    document.querySelectorAll('#picker .pick').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b === btn));
+    });
+    render(btn.dataset.b);
+  });
+
+  render('adm');
+
+  /* ---------------------------------------------------------- glossary */
+  var WORDS = [
+    ["The Cut","The open excavation. The main dig site, and where most detainee work happens."],
+    ["The adit","A horizontal tunnel driven into the mountain. Ours goes into the eastern massif and nobody has finished exploring it."],
+    ["A face","The working surface of rock you are actually digging. You get assigned one."],
+    ["The skip","Where spoil goes. Hauling to the skip is how tonnage gets counted."],
+    ["The Wire","The perimeter. Security hold it, and crossing it without an escort is the thing they care most about."],
+    ["Spoil","Dug material on its way to being building material."],
+    ["A module","A finished structure placed on the map. Permanent."],
+    ["The bar","The community progress number. When it fills, a new part of the site opens for everyone."],
+    ["Drift","A number on the works board that climbs and is never explained. Do not expect an answer yet."],
+    ["Contingent Asset","You, on arrival. Somebody the Corporation has not assigned to a job yet. You keep it forever."],
+    ["Branch","Your department. What you do."],
+    ["Grade","How far up you are, written as a letter and a number. G0 to G5, then C1 to C3."],
+    ["Clearance","Where you are allowed to go. Follows from your grade automatically. CL-1 to CL-4."],
+    ["Trusty","A detainee who has worked three clean shifts. Unescorted inside the camp, better commissary, can hold a camp job."],
+    ["Ganger","A detainee who runs a gang of four and takes a cut of what they dig."],
+    ["Time-Served","A detainee who passed a release board. Leaves the camp and can apply to any department with a recommendation."],
+    ["Class-D","Genre shorthand for the detainee workforce. Here it is Detainee Labour, and it is a real department with a real way out."],
+    ["CI","The Continuum Interest. The people who raid the site, steal material and drop the bar. They are not random bandits and their origin is inside PRC."],
+    ["HICOM","High Command. Two people. The top of the structure."],
+    ["The Observer","The final say on canon, systems and the calendar. C3."],
+    ["The Arbiter","Handles appeals. Deliberately never part of the original decision."],
+    ["The Register","The Anomalous Registry. A risk document, not a monster manual, which is most of what makes PRC different."],
+    ["A fragment","Something the site was not supposed to keep. Partial, sometimes contradictory, never deleted once found."],
+    ["Domain failure","What PRC deals with. A place or process that has stopped obeying its own rules. You do not put one in a box, you occupy the ground and build on it."],
+    ["Manifest","What the next supply ship carries. The server votes on it."],
+    ["In character","Speaking as your character. Out of character means speaking as yourself, and anybody can call it to stop a scene."],
+    ["Founder","Anyone who joined before the doors open on 31 October. The rank is never handed out again."],
+    ["The doors","31 October 2026. When the game opens properly."]
+  ];
+
+  var list = document.getElementById('gloss');
+  var none = document.getElementById('gnone');
+  var search = document.getElementById('gsearch');
+
+  function paint(q){
+    var n = (q || '').trim().toLowerCase();
+    var rows = WORDS.filter(function(w){
+      return !n || w[0].toLowerCase().indexOf(n) > -1 || w[1].toLowerCase().indexOf(n) > -1;
+    });
+    list.innerHTML = rows.map(function(w){
+      return '<li><span class="t">' + w[0] + '</span><span class="m">' + w[1] + '</span></li>';
+    }).join('');
+    list.hidden = rows.length === 0;
+    none.hidden = rows.length !== 0;
+  }
+  paint('');
+  search.addEventListener('input', function(){ paint(search.value); });
+
+  /* ---------------------------------------------------------- scrollspy */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.jump a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var seen = {};
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ seen[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+    var best = null, bv = 0;
+    Object.keys(seen).forEach(function(id){ if (seen[id] > bv){ bv = seen[id]; best = id; } });
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if (best && map[best]) map[best].classList.add('on');
+  }, { rootMargin: '-56px 0px -55% 0px', threshold: [0, 0.15, 0.4, 0.8] });
+  Object.keys(map).forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) io.observe(el);
+  });
+})();
+</script>
