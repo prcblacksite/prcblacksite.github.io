@@ -1,0 +1,9 @@
+/* The department seals, as files the browser caches once for every page. */
+.seal-prc { background-image: url("/seals/seal-prc.svg"); }
+.seal-prc-icon { background-image: url("/seals/seal-prc-icon.svg"); }
+.seal-cd { background-image: url("/seals/seal-cd.svg"); }
+.seal-fac { background-image: url("/seals/seal-fac.svg"); }
+.seal-sec { background-image: url("/seals/seal-sec.svg"); }
+.seal-mvf { background-image: url("/seals/seal-mvf.svg"); }
+.seal-adm { background-image: url("/seals/seal-adm.svg"); }
+.seal-cmd { background-image: url("/seals/seal-cmd.svg"); }

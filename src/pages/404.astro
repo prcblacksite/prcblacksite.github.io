@@ -1,0 +1,28 @@
+---
+// GitHub Pages serves this for any address that is not on the site.
+import { getEntry, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { BY_SLUG } from "../lib/site";
+
+const entry = (await getEntry("pages", "404"))!;
+const page = BY_SLUG["/404/"]!;
+const { Content } = await render(entry);
+---
+
+<Base page={page} tokens={[]}>
+  <section class="page" aria-labelledby="h-page">
+    <div class="wrap">
+      <div class="cols">
+        <article>
+          <header class="page-head">
+            <p class="eyebrow">404</p>
+            <h1 id="h-page" tabindex="-1">{page.title}</h1>
+          </header>
+          <div class="prose">
+            <Content />
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</Base>

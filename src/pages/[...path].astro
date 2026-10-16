@@ -1,0 +1,71 @@
+---
+// Every page in src/content/pages at its own address. The 404 page has its own route.
+import { getCollection, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { BY_SLUG, GROUP_LABEL, P, READING, esc, fmtDate } from "../lib/site";
+import { tokensOf } from "../tokens/index";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("pages");
+  return entries
+    .filter((entry) => entry.data.slug !== "/404/")
+    .map((entry) => ({ params: { path: entry.data.slug.replace(/^\/|\/$/g, "") || undefined }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const page = BY_SLUG[entry.data.slug]!;
+const { Content, headings, remarkPluginFrontmatter: fm } = await render(entry);
+const home = page.layout === "home";
+const minutes = Number(fm.minutes ?? 1);
+const lead = typeof fm.lead === "string" ? fm.lead : "";
+const toc = page.toc ? headings.filter((h) => h.depth === 2) : [];
+const at = READING.indexOf(page);
+const prev = at > 0 ? READING[at - 1] : undefined;
+const next = at >= 0 && at + 1 < READING.length ? READING[at + 1] : undefined;
+const pager = (p: typeof prev, k: string, cls: string) => (p ? `<a class="${cls}" href="${p.slug}"><small>${k}</small><b>${esc(p.nav)}</b></a>` : "<span></span>");
+---
+
+<Base page={page} tokens={tokensOf(page)}>
+  {
+    home ? (
+      <section class="page" aria-labelledby="h-home">
+        <div class="wrap">
+          <div class="prose">
+            <Content />
+          </div>
+        </div>
+      </section>
+    ) : (
+      <section class="page" aria-labelledby="h-page">
+        <div class={page.layout === "wide" ? "wrap wide" : "wrap"}>
+          <div class={toc.length >= 3 ? "cols has-toc" : "cols"}>
+            <article>
+              <header class="page-head">
+                <p class="eyebrow">{page.group ? GROUP_LABEL[page.group] : ""}</p>
+                <h1 id="h-page" tabindex="-1">{page.title}</h1>
+                {lead && <p class="lead" set:html={lead} />}
+                <p class="page-meta">Updated {fmtDate(P.meta.updated, false)} · {minutes} minute read</p>
+              </header>
+              <div class="prose">
+                <Content />
+              </div>
+              <nav class="pager" aria-label="Previous and next" set:html={pager(prev, "Previous", "prev") + pager(next, "Next", "next")} />
+            </article>
+            {
+              toc.length >= 3 && (
+                <nav class="toc" aria-label="On this page">
+                  <p>On this page</p>
+                  {toc.map((h) => (
+                    <a href={`#${h.slug}`} data-toc={h.slug}>
+                      {h.text}
+                    </a>
+                  ))}
+                </nav>
+              )
+            }
+          </div>
+        </div>
+      </section>
+    )
+  }
+</Base>

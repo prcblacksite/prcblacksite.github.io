@@ -1,0 +1,319 @@
+# PRC · the roadmap
+#
+# What exists, what is being built and what comes after, with no dates. Order comes from
+# `waits_on`: each item says what has to happen first. The website draws this as a map
+# (status rings from the centre outwards, one sector per category) and as a list.
+#
+# PUBLIC. Systems, places and departments in full. Story only as redacted teasers that show
+# something exists without saying what.
+#
+# To change it: edit this file, push, and the site rebuilds. Move an item's status when it
+# changes; add `waits_on` when something new depends on it. No em or en dashes.
+
+statuses:
+  - { key: live, label: Live, meaning: "In the game or the server now." }
+  - { key: building, label: Being built, meaning: "Work on it has started." }
+  - { key: next, label: Next, meaning: "Comes after what it waits on. Designed." }
+  - { key: later, label: Later, meaning: "Planned. Waits on things that are not done yet." }
+  - { key: exploring, label: Exploring, meaning: "An idea we are working out. It might change shape." }
+
+categories:
+  - { key: site, label: The site, blurb: "Places. Everything here gets dug, built or reached by the people playing." }
+  - { key: works, label: The works, blurb: "The loop and what feeds it: digging, building, supply and transport." }
+  - { key: people, label: Departments, blurb: "Who does what, and the departments still to open." }
+  - { key: ops, label: Operations, blurb: "The week, the events and the seasons." }
+  - { key: story, label: The story, blurb: "What can be said. The rest is redacted until the site finds it." }
+  - { key: community, label: Community, blurb: "Discord, the bot, the website and the tools around the game." }
+
+items:
+  # ---------------------------------------------------------------- the site
+  - id: pier-bay
+    title: Pier Bay
+    category: site
+    status: building
+    summary: "Where the site starts: Pier 1, Processing, Site Command, the camp, the Wire, the first dig face, the Adit, Fjord Station and Bay Lookout. It opens with the doors."
+    waits_on: []
+  - id: floor-2
+    title: Floor 2
+    category: site
+    status: next
+    summary: "It does not exist until people dig it. It opens for everyone when the works bar reaches its number."
+    waits_on: [works-bar]
+  - id: the-west
+    title: The West
+    category: site
+    status: next
+    summary: "A second dig front, the limestone quarry, West Landing, the water intake and a sawmill."
+    waits_on: [pier-bay, west-road]
+  - id: high-north
+    title: High North
+    category: site
+    status: later
+    summary: "Signal Hill's relay mast and radar, the Tarn Plateau, and logging in Long Valley."
+    waits_on: [the-west]
+  - id: the-south
+    title: The South
+    category: site
+    status: later
+    summary: "The Downs, where the Vanguard trains, and the ground for a permanent camp."
+    waits_on: [the-west]
+  - id: outer-islands
+    title: The outer islands
+    category: site
+    status: exploring
+    summary: "Small islands off the coast: an old lighthouse, a weather station, a radar outpost and more."
+    waits_on: [steerable-boats]
+  - id: island-redacted-1
+    title: Outer island 4-B
+    category: site
+    status: exploring
+    redacted: true
+    summary: "Classified."
+    waits_on: [outer-islands]
+  - id: island-redacted-2
+    title: Outer island 4-C
+    category: site
+    status: exploring
+    redacted: true
+    summary: "Classified."
+    waits_on: [outer-islands]
+
+  # ---------------------------------------------------------------- the works
+  - id: the-dig
+    title: The dig
+    category: works
+    status: live
+    summary: "Detainees work faces in the Cut and haul spoil to the skip. Every stud of the site starts here."
+    waits_on: []
+  - id: works-bar
+    title: The works bar
+    category: works
+    status: live
+    summary: "The whole community's progress. Every module placed moves it, and when it fills, a new part of the site opens for everyone."
+    waits_on: [budget-modules]
+  - id: budget-modules
+    title: Budget and modules
+    category: works
+    status: live
+    summary: "Tonnes become budget, and Facilities spend it on modules: huts, fences, masts, lighting, generators."
+    waits_on: [the-dig]
+  - id: supply-ship
+    title: The supply ship
+    category: works
+    status: live
+    summary: "It unloads at the pier, the truck carries supplies to the stores, and the server votes on what the next one carries."
+    waits_on: []
+  - id: catalogue-growth
+    title: A bigger catalogue
+    category: works
+    status: next
+    summary: "The module catalogue grows from a handful of prefabs into a real construction system."
+    waits_on: [budget-modules]
+  - id: west-road
+    title: The road west
+    category: works
+    status: next
+    summary: "The first road across the island, so material can reach the second dig front."
+    waits_on: [catalogue-growth]
+  - id: transport-network
+    title: A transport network
+    category: works
+    status: later
+    summary: "More than one truck, and routes across the island."
+    waits_on: [west-road]
+  - id: steerable-boats
+    title: Boats you can steer
+    category: works
+    status: later
+    summary: "For the fjord patrol, and for reaching the outer islands."
+    waits_on: [transport-network]
+  - id: resource-tiers
+    title: Deep materials
+    category: works
+    status: exploring
+    summary: "Materials that only arrive by ship, which is what makes the manifest vote matter."
+    waits_on: [supply-ship]
+
+  # ---------------------------------------------------------------- departments
+  - id: five-departments
+    title: Five departments
+    category: people
+    status: live
+    summary: "Detainee Labour, Facilities, Security, the Mobile Vanguard and Administrative, each with six grades."
+    waits_on: []
+  - id: camp-ladder
+    title: The way up out of the camp
+    category: people
+    status: live
+    summary: "Detainee, Trusty, Ganger, then a release board and a way into any department."
+    waits_on: []
+  - id: vanguard-selection
+    title: Vanguard selection
+    category: people
+    status: live
+    summary: "Ten seats, earned in a selection op run in public."
+    waits_on: [five-departments]
+  - id: research-containment
+    title: Research and Containment
+    category: people
+    status: later
+    summary: "A real department, locked until the dig reaches something worth researching."
+    waits_on: [floor-2]
+  - id: second-camp
+    title: A second camp
+    category: people
+    status: later
+    summary: "A permanent camp in the south, and a second camp for Security to run."
+    waits_on: [the-south]
+  - id: vanguard-outpost
+    title: A Vanguard outpost
+    category: people
+    status: exploring
+    summary: "A radar and Vanguard outpost out on the islands."
+    waits_on: [outer-islands]
+  - id: adm-sections
+    title: Records and Medical
+    category: people
+    status: exploring
+    summary: "Sections of Administrative, once it is big enough to need them."
+    waits_on: [five-departments]
+
+  # ---------------------------------------------------------------- operations
+  - id: the-doors
+    title: The doors open
+    category: ops
+    status: building
+    summary: "The game opens properly. Everyone who joined before then keeps Founder, and it is never handed out again."
+    waits_on: [pier-bay]
+  - id: weekly-ops
+    title: Two ops a week
+    category: ops
+    status: live
+    summary: "A works shift every Wednesday and a site op every Saturday, both at 19:00 UTC."
+    waits_on: []
+  - id: saturday-rotation
+    title: The Saturday rotation
+    category: ops
+    status: live
+    summary: "Full shift, raid, riot, selection, inspection and, rarely, the find."
+    waits_on: [weekly-ops]
+  - id: promotion-board
+    title: The promotion board
+    category: ops
+    status: live
+    summary: "Every Sunday, in public, with the numbers attached."
+    waits_on: []
+  - id: scheduled-raids
+    title: Raids on a schedule
+    category: ops
+    status: next
+    summary: "Continuum Interest raids that run on a schedule instead of by hand."
+    waits_on: [the-doors]
+  - id: winter
+    title: Winter
+    category: ops
+    status: next
+    summary: "The first season change. The island turns over to winter."
+    waits_on: [the-doors]
+  - id: seasons
+    title: More seasons
+    category: ops
+    status: later
+    summary: "Each season changes how the island looks and plays."
+    waits_on: [winter]
+
+  # ---------------------------------------------------------------- the story
+  - id: fragment-archive
+    title: The fragment archive
+    category: story
+    status: live
+    summary: "Finds go in #fragment-archive and are never deleted. Some of them don't agree with each other."
+    waits_on: []
+  - id: the-register
+    title: The Risk Register
+    category: story
+    status: live
+    summary: "The site's register of what it is dealing with. Entries unlock as the dig goes deeper."
+    waits_on: []
+  - id: drift
+    title: Drift
+    category: story
+    status: live
+    summary: "A number on the works board that climbs. Nobody will explain it yet."
+    waits_on: []
+  - id: chapters
+    title: The story so far
+    category: story
+    status: building
+    summary: "One short public recap per chapter, so catching up takes minutes, not months."
+    waits_on: []
+  - id: three-doors
+    title: Three doors
+    category: story
+    status: later
+    summary: "One corridor inside the mountain ends in three doors that don't open yet."
+    waits_on: [works-bar]
+  - id: below-the-fourth-floor
+    title: Below the fourth floor
+    category: story
+    status: exploring
+    redacted: true
+    summary: "Held back."
+    waits_on: [floor-2]
+  - id: register-redacted
+    title: Register entry
+    category: story
+    status: exploring
+    redacted: true
+    summary: "Classified."
+    waits_on: [the-register]
+
+  # ---------------------------------------------------------------- community
+  - id: discord-bot
+    title: Discord and CARAPACE
+    category: community
+    status: live
+    summary: "The server and the site's own bot: applications, ranks, the daily status and the schedule."
+    waits_on: []
+  - id: website
+    title: One website
+    category: community
+    status: building
+    summary: "Orientation, the wiki and this roadmap in one place, with search."
+    waits_on: []
+  - id: rank-sync
+    title: Ranks on Roblox
+    category: community
+    status: building
+    summary: "A rank set in Discord appears on Roblox by itself."
+    waits_on: [discord-bot]
+  - id: catchup
+    title: Catching up
+    category: community
+    status: building
+    summary: "/catchup and /whatis, so anyone who has been away is caught up in a minute."
+    waits_on: [chapters]
+  - id: appeals-flow
+    title: Appeals through the bot
+    category: community
+    status: next
+    summary: "Appeals reach the Arbiter through the bot instead of by hand."
+    waits_on: [discord-bot]
+  - id: duty-roles
+    title: Duty roles at muster
+    category: community
+    status: next
+    summary: "Duty roles handed out at muster and taken back when the op closes."
+    waits_on: [weekly-ops]
+  - id: in-game-board
+    title: A board in the camp
+    category: community
+    status: later
+    summary: "The works board and the story so far on a terminal inside the camp."
+    waits_on: [chapters]
+  - id: supporters
+    title: Supporter perks
+    category: community
+    status: later
+    summary: "Once there are players to support."
+    waits_on: [the-doors]

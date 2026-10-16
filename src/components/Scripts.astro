@@ -1,0 +1,28 @@
+---
+// The menu and search on every page; the rest only on the pages whose components use them
+// (SITEMAP, "Scripts, page by page"). Each script is its own small module.
+import Board from "./scripts/Board.astro";
+import Glossary from "./scripts/Glossary.astro";
+import Menu from "./scripts/Menu.astro";
+import Roadmap from "./scripts/Roadmap.astro";
+import Search from "./scripts/Search.astro";
+import Tabs from "./scripts/Tabs.astro";
+import Times from "./scripts/Times.astro";
+import Toc from "./scripts/Toc.astro";
+
+interface Props {
+  tokens: string[];
+  toc: boolean;
+}
+const { tokens, toc } = Astro.props;
+const uses = (...names: string[]) => names.some((n) => tokens.includes(n));
+---
+
+<Menu />
+<Search />
+{toc && <Toc />}
+{uses("department-picker") && <Tabs />}
+{uses("glossary") && <Glossary />}
+{uses("week", "playtests", "status-board") && <Times />}
+{uses("status-board") && <Board />}
+{uses("roadmap") && <Roadmap />}

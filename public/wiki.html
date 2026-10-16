@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wiki · PRC</title>
+<link rel="canonical" href="https://prcblacksite.github.io/wiki/">
+<meta name="robots" content="noindex">
+<script>
+  // The old one-file wiki showed a page per #name. Each one now has its own address.
+  (function () {
+    var pages = ["what", "now", "loop", "departments", "ranks", "promotion", "camp", "roster", "week", "joining", "conduct", "carapace", "glossary"];
+    var id = location.hash.slice(1);
+    location.replace(pages.indexOf(id) >= 0 ? "/wiki/" + id + "/" : "/wiki/");
+  })();
+</script>
+<style>body{margin:0;padding:32px 16px;background:#14110F;color:#F2EBE4;font:16px/1.6 system-ui,sans-serif}a{color:#E8A33D}li{margin:4px 0}</style>
+</head>
+<body>
+<p>The wiki has moved. Every page now has its own address:</p>
+<ul>
+<li><a href="/wiki/">All wiki pages</a></li>
+<li><a href="/wiki/what/">What PRC is</a></li>
+<li><a href="/wiki/now/">Right now</a></li>
+<li><a href="/wiki/loop/">The loop</a></li>
+<li><a href="/wiki/departments/">Departments</a></li>
+<li><a href="/wiki/ranks/">Ranks</a></li>
+<li><a href="/wiki/promotion/">Moving up</a></li>
+<li><a href="/wiki/camp/">The camp</a></li>
+<li><a href="/wiki/roster/">Duty roster</a></li>
+<li><a href="/wiki/week/">The week</a></li>
+<li><a href="/wiki/joining/">Joining</a></li>
+<li><a href="/wiki/conduct/">Conduct</a></li>
+<li><a href="/wiki/carapace/">CARAPACE</a></li>
+<li><a href="/wiki/glossary/">Glossary</a></li>
+</ul>
+</body>
+</html>

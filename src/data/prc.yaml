@@ -1,0 +1,549 @@
+# PRC · the facts, in one place
+#
+# Every public page reads this file: the website, the orientation, the wiki, the GitHub
+# profiles and, later, the bot's explainers. If two pages disagree, one of them is not reading
+# this file. Change a fact here and it changes everywhere on the next build.
+#
+# EVERYTHING IN THIS FILE IS PUBLIC. No story beyond what a new member is told, nothing about
+# staff decisions, nothing about how the bot protects the server, no IDs. Discord and Roblox
+# IDs live in prc-bot/config/prc.config.yaml and in the Roblox config module, never here.
+#
+# No em or en dashes anywhere in this file. Plain hyphens.
+
+meta:
+  name: Prometheus Research Corporation
+  short: PRC
+  designation: "SITE-███ · RISK MITIGATION · UNIT-Δ"
+  one_line: "Every other group in this genre hands you a site that already exists. This one makes you dig it out of the ground, and the map remembers."
+  headline: "The site isn't built yet"
+  hero_line: "A roleplay group on Roblox where people dig the site out of the mountain, others build with what comes up, and nothing ever resets."
+  doors: 2026-10-31
+  doors_at: "2026-10-31T19:00:00Z"
+  doors_label: "Saturday 31 October 2026"
+  ops_timezone: UTC
+  updated: 2026-10-16
+
+links:
+  site: https://prcblacksite.github.io/
+  orientation: https://prcblacksite.github.io/orientation/
+  wiki: https://prcblacksite.github.io/wiki/
+  roadmap: https://prcblacksite.github.io/roadmap/
+  discord: https://discord.gg/RjzQN8kCPW
+  roblox_group: https://www.roblox.com/communities/16632422
+  works_feed: https://sky.renighted-dev.workers.dev/prc/works.json # the sky Worker: the bar and the week, live
+  social:
+    tiktok: https://www.tiktok.com/@prcblacksite
+    youtube: https://www.youtube.com/@prcblacksite
+    x: https://x.com/prcblacksite
+    instagram: https://www.instagram.com/prcblacksite/
+    reddit: https://www.reddit.com/r/PRCBlacksite/
+    github: https://github.com/prcblacksite
+
+# ------------------------------------------------------------------ the premise
+premise:
+  short: >-
+    An SCP-genre roleplay group on Roblox where the site isn't built yet. A government
+    blacksite on an island. Detainees dig the site out of the mountain, Facilities build with
+    what gets dug, Security runs the camp, and the Mobile Vanguard Force handles it when
+    something lands. Everything that gets built stays on the map permanently.
+  domain_failure: >-
+    The Foundation's unit of work is an object in a box. PRC's unit of work is a place that
+    stopped obeying itself: a mine where the rock does not stay where it was put, a building
+    whose floor count disagrees with its stairwell. You do not contain one by locking a door.
+    You occupy the ground, survey it, build on it and hold it.
+  day_one: >-
+    A supply pier, an intake hut, the camp, the checkpoint called the Wire, the Cut, and one
+    corridor into the mountain with three doors that don't open yet.
+  never_resets: "Nothing resets. Floor 2 does not exist until people dig it."
+  hook: "Something below the fourth floor has been here longer than any of us."
+
+promise:
+  - "You never need lore to play. The loop is the game; the story is there when you want it."
+  - "The camp takes anyone, with no application, within a minute."
+  - "Every application gets an answer within 24 hours, including a no."
+
+# ------------------------------------------------------------------ the loop
+loop:
+  - { key: dig, label: Dig, text: "Detainees work faces in the Cut and haul spoil to the skip." }
+  - { key: move, label: Move, text: "Logistics run the truck, the docks and the stores." }
+  - { key: build, label: Build, text: "Engineering spend what was dug on real structures and place them on the live map." }
+  - { key: unlock, label: Unlock, text: "A community bar fills as everyone digs. When it fills, a new part of the site opens for everyone, for good." }
+
+# The loop as a diagram: two lanes feed one slot. Drawn by the website as an SVG.
+loop_diagram:
+  lanes:
+    - label: The dig
+      nodes:
+        - { name: Cut face, note: detainees dig }
+        - { name: Skip, note: splits every load }
+        - { name: Works budget, note: communal, hot: true }
+      edges: [carry, tonnes]
+    - label: The supply line
+      nodes:
+        - { name: Supply ship, note: manifest vote }
+        - { name: Pier, note: Logistics unload }
+        - { name: Stores, note: "timber, steel, plate" }
+      edges: [unload, truck]
+  side: { name: Commissary, note: never builds, edge: credits to the carrier }
+  into: spent
+  merge:
+    - { name: Module slot, note: needs both, hot: true }
+    - { name: The bar, note: everyone sees it, hot: true }
+    - { name: Zone opens, note: built in advance, hot: true }
+  merge_edges: [placed, fills]
+  caption: "**Two lanes feed one slot, and credits never reach it.** The skip is where a single delivery splits in two: the person who carried it gets credits, and the site gets tonnes. Credits stop at the commissary. A module needs budget and supplies together, and only modules move the bar."
+
+# What the morning works post looks like. Example figures, and the page says so.
+works_example:
+  bar: 41.2
+  delta: "+1.8% in 24 hours"
+  # tone: good (it moved the right way), plain (a note), odd (nobody will explain it)
+  rows:
+    - { label: Dug, value: "412 t to the skip", change: "+18", tone: good }
+    - { label: Built, value: "6 modules placed", change: "+1", tone: good }
+    - { label: Budget, value: "240 units available", change: "unspent 3 days", tone: plain }
+    - { label: Next node, value: "Wire, north run, 68%", change: "needs timber", tone: plain }
+    - { label: Drift, value: "0.41", change: "rising", tone: odd }
+  note: "Posted every morning in #works-programme. These are example figures."
+
+clocks:
+  - { name: The session, length: "30 minutes", moved_by: "One shift: draw a tool, work a face, haul spoil, place a module, run an escort.", feels: "I did a thing tonight." }
+  - { name: The week, length: "7 days", moved_by: "Two scheduled ops, a promotion board, the supply boat.", feels: "My department is going somewhere." }
+  - { name: The campaign, length: "Months", moved_by: "The progress bar, floors, zones, seasons.", feels: "The site is growing and I dug part of it." }
+
+currencies:
+  credits: { belongs_to: "The person", earned_by: "Delivering spoil, finishing shifts, escorts, counts", spent_on: "The commissary: food, better tools, cosmetics, days off a sentence", spent_by: "Anyone, on themselves" }
+  budget: { belongs_to: "The site", earned_by: "Tonnes reaching the skip", spent_on: "Modules, and nothing else", spent_by: "Facilities, G1 and up" }
+  rule: "Neither can ever buy the other."
+
+modules:
+  - { key: hardstanding, name: "Section of hardstanding", cost: 20 }
+  - { key: fence, name: "Length of fence", cost: 10 }
+  - { key: hut, name: "Hut", cost: 40 }
+  - { key: mast, name: "Mast (comms)", cost: 30, restricted: true }
+  - { key: lighting, name: "Lighting rig", cost: 25, restricted: true }
+  - { key: generator, name: "Generator (power)", cost: 60, restricted: true }
+
+# ------------------------------------------------------------------ branches
+# Six branches. Five are somewhere a member can end up; Command is not applied to.
+branches:
+  - code: CD
+    name: Detainee Labour
+    short: The prisoners
+    evening:
+      - "Work a face in the Cut and haul spoil to the skip"
+      - "Earn credits and days off your sentence, and spend them in the commissary"
+      - "Work up to Trusty, then run a gang of four as a Ganger"
+      - "Everything the site is built from comes out of your face. Every stud of it"
+    mandate: "The dig. Everything the site is built from comes out of the ground here."
+    shift: "Muster. Draw a tool. Walk out under escort to the Cut. Work a face for twenty minutes. Haul to the skip. Credits land."
+    suits: "Everyone. It is the default role, with no barrier, and it is meant to be good enough that people choose it on purpose."
+    way_in: "The boat. No application, no interview, sixty seconds from joining to holding a tool."
+    way_in_short: "Open now. No application."
+    joinable: instant
+    seal: seal-cd.svg
+  - code: FAC
+    name: Facilities Maintenance
+    short: The builders and the supply run
+    evening:
+      - "Engineering: spend the works budget on real structures and place them on the live map"
+      - "Logistics: run the truck, work the docks, keep the stores and the commissary stocked"
+      - "Argue about the build order, which is most of the job"
+      - "Watch something you placed get walked through by a hundred people"
+    mandate: "Turn what is dug into what is built, and keep it supplied. Facilities is the branch that changes the map."
+    sections:
+      - { code: "E&T", name: "Engineering & Technical", text: "Builds. Check the budget, pick a module from the catalogue, site it, place it." }
+      - { code: LOG, name: Logistics, text: "Moves. Run the truck, manage the skip, unload the supply boat, stock the commissary." }
+    suits: "Builders, and the people who like systems, routes and being the reason everything works."
+    way_in: "An application plus one of: a screenshot of something you built, or a trial shift hauling."
+    way_in_short: "Apply, with a build or a trial shift."
+    joinable: apply
+    seal: seal-fac.svg
+  - code: SEC
+    name: Security Division
+    short: The guards
+    evening:
+      - "Hold the Wire and run the gate"
+      - "Escort detainee gangs out to the face and back"
+      - "Head counts on the hour, and contraband sweeps when something goes missing"
+      - "The riot, when it comes, which it does"
+    mandate: "Count them out, count them back, and keep the camp from becoming a riot."
+    shift: "Take the gate at the Wire. Run an escort to the dig face and stand it while it works. Head count at the top of the hour. Sweep a bunk row."
+    suits: "The largest branch, and the one most people join first. Structure, procedure and authority with rules attached."
+    way_in: "An open application plus a short chat on procedure, not on lore."
+    way_in_short: "Apply, then a short chat on procedure."
+    joinable: apply
+    seal: seal-sec.svg
+  - code: MVF
+    name: Mobile Vanguard Force
+    short: The emergency team
+    evening:
+      - "Kit check, patrol the fjord, wait"
+      - "Nothing at all, most nights"
+      - "Then the alarm goes and for about fifteen minutes you are the only thing anyone is watching"
+      - "Raids, breaches, and whatever comes up out of the adit"
+    mandate: "Answer the alarm. Everything else is waiting."
+    shift: "Kit check, patrol, wait. Then the alarm goes, and for fifteen minutes the Vanguard is the only thing anyone is watching."
+    suits: "The smallest branch, capped at ten on purpose. For people who can stand being bored for the sake of being decisive later."
+    way_in: "Selection, not application. G2 in Security or Facilities with a clean record, a supervisor's nomination, and a selection op run in public. Fail and you may try again after 30 days."
+    way_in_short: "Selection only. Ten seats."
+    joinable: selection
+    cap: 10
+    seal: seal-mvf.svg
+  - code: ADM
+    name: Administrative Branch
+    short: The office
+    evening:
+      - "Sign people in when they arrive and give the detainees their numbers"
+      - "Keep the works ledger straight so Facilities know what they can spend"
+      - "Write up whatever happened at the face and file it"
+      - "Run the archive, and decide what the Corporation admits to"
+    mandate: "Keep the records. Every person, number, promotion and application passes through here and leaves a paper trail."
+    shift: "Process the intake when a boat lands. Run muster and file the count. Write up an incident report. Update the works ledger."
+    suits: "People who like the paperwork of the genre: forms, stamps, redaction, numbers, filing. Also writers."
+    way_in: "An open application with one writing sample: a two paragraph incident report from a prompt."
+    way_in_short: "Apply, with a short writing sample."
+    joinable: apply
+    seal: seal-adm.svg
+  - code: CMD
+    name: Site Command
+    short: Command
+    evening:
+      - "Authorise operations and handle incidents"
+      - "Chair the promotion boards, in public, with the numbers attached"
+      - "Decide what is canon and what is not"
+      - "Hand departments to people and then stay out of their way"
+    mandate: "Hold the story and the calendar, and make sure every other branch has someone accountable at the top of it."
+    way_in: "You do not apply to Command. It is where a branch director goes after running their branch well."
+    way_in_short: "Not applied to."
+    joinable: never
+    seal: seal-cmd.svg
+
+not_branches:
+  - { name: "The Continuum Interest (CI)", text: "The opposition. A role you are handed for one op and take off afterwards. No ladder, no application." }
+  - { name: "Research and Containment", text: "A real department, locked until the dig reaches something worth researching." }
+  - { name: Founder, text: "A permanent honour for everyone who joined before the doors. It sits beside the ranks, not on them." }
+
+# ------------------------------------------------------------------ ranks: three layers
+# The grade is the contract. The band is the role you see on Discord and Roblox. The title is
+# your branch's flavour. A Foreman and a Sergeant are both G3, both Custodians, and peers.
+rank_layers:
+  - { layer: The grade, example: "G0 to G5", text: "The contract. The same six steps in every department, and the thing that carries the authority." }
+  - { layer: The band, example: "Initiate, Operator, Custodian, Director", text: "What Discord and Roblox show next to your name. G1 and G2 share a band, and so do G3 and G4." }
+  - { layer: The title, example: "Foreman, Sergeant, Clerk", text: "Your department's flavour. A Foreman and a Sergeant are both G3, both Custodians, and equals." }
+
+grades:
+  G0: { band: Initiate,  meaning: "Trial. Supervised.", roughly: "Your first week", min_days: 7 }
+  G1: { band: Operator,  meaning: "Member. Does the work, unsupervised, on a task someone else set.", roughly: "The backbone", min_days: 21 }
+  G2: { band: Operator,  meaning: "Specialist. Trusted with the difficult version of the work. Trains new people.", roughly: "About a month in", min_days: 30 }
+  G3: { band: Custodian, meaning: "Supervisor. Runs a shift and the people on it. The first rank with authority over people.", roughly: "A seat" }
+  G4: { band: Custodian, meaning: "Deputy. Runs the branch when the director is not there.", roughly: "A seat" }
+  G5: { band: Director,  meaning: "Director. Owns the branch, its handbook, its roster and its numbers.", roughly: "One per branch" }
+
+command:
+  C1: { title: Overseer, meaning: "Duty officers. Authorise ops, chair boards, handle incidents." }
+  C2: { title: Continuum Director, meaning: "Cross-department. Runs the site when the Observer is not here." }
+  C3: { title: Observer, meaning: "Final say on canon, systems and the calendar." }
+  note: "Command seats are appointments, not promotions. No promotion reaches them."
+
+titles:
+  ADM:   { G0: Probationer, G1: Clerk, G2: Senior Clerk, G3: Records Supervisor, G4: Deputy Registrar, G5: Registrar }
+  "E&T": { G0: Probationer, G1: Works Hand, G2: Technician, G3: Foreman, G4: Deputy Works Director, G5: Works Director }
+  LOG:   { G0: Probationer, G1: Loader, G2: Storeman, G3: Quartermaster, G4: Deputy Works Director, G5: Works Director }
+  SEC:   { G0: Cadet, G1: Officer, G2: Senior Officer, G3: Sergeant, G4: Watch Commander, G5: Chief of Security }
+  MVF:   { G0: Selection, G1: Vanguard, G2: Operator, G3: Section Leader, G4: Deputy Commander, G5: Vanguard Commander }
+  CD_staff: { G1: Muster Clerk, G3: Labour Overseer, G5: Superintendent of Labour }
+
+beside_the_ladder:
+  - { name: Contingent Asset, text: "Everyone, from the moment they accept the rules. Kept for good, by everyone, including the Chief of Security." }
+  - { name: Founder, text: "Everyone who joined before the doors. Never granted again." }
+  - { name: Site Architect, text: "Layout and interiors authority. Held by name." }
+  - { name: Arbiter, text: "Hears appeals and complaints, and was not part of the decision being appealed." }
+  - { name: External Asset, text: "Visitors and representatives from allied groups." }
+
+specialists:
+  SEC: [Gate Officer, Escort Lead, Searcher]
+  MVF: [Breacher, Coxswain, Marksman, Medic]
+
+promotion:
+  gates:
+    - { step: "G0 to G1", gate: Knowledge, proves: "A short procedure check and one supervised shift. At least 7 days." }
+    - { step: "G1 to G2", gate: Skill, proves: "A specialist qualification in a practical test. At least 21 days." }
+    - { step: "G2 to G3", gate: "A seat", proves: "Appointed by the director into an open seat. At least 30 days." }
+    - { step: "G3 to G4", gate: "A seat", proves: "Appointed into an open seat." }
+    - { step: "G5", gate: One, proves: "The director." }
+  seats: "From G3 up, a rank is a seat: one G3 for every five posted members of a branch, one G4 until it passes twenty, one G5."
+  three_things: [Time in grade, "Something countable you actually did", "Someone above you putting their name on it"]
+  board: "A promotion board every Sunday, in public, with the numbers attached and the outcome posted."
+  not_for_sale: "Rank is not for sale, trade or favour. Not for Robux, not for art, not for a friend."
+  dormancy: "Thirty days without activity moves you down one grade onto the Reserve list. Sixty returns you to G1. Come back and say so, and you are restored at your old grade with no board."
+  demotion: "Always comes with a written reason you can see. One appeal per action, to someone who was not involved, answered within seven days."
+
+clearance:
+  - { level: CL-1, opens: "The camp, the pier, the Cut, Floor 1", who: "Everyone, from day one" }
+  - { level: CL-2, opens: "The adit works, restricted stores, the tower desk", who: "G3 and above. Security and Vanguard reach it earlier, because the far side of the Wire is where they work." }
+  - { level: CL-3, opens: "Whatever Floor 2 turns out to be", who: "Appointed. Not rankable into." }
+  - { level: CL-4, opens: Everything, who: "Two people" }
+
+# ------------------------------------------------------------------ the camp
+camp:
+  ladder:
+    - { rung: D0, title: Unprocessed, how: "Step off the boat", gets: "A number and a jumpsuit" }
+    - { rung: D1, title: Detainee, how: "Processing, about a minute", gets: "Tools, faces, credits, the commissary" }
+    - { rung: D2, title: Trusty, how: "Three clean shifts at output", gets: "Unescorted inside the camp, a better commissary, a camp job: cook, orderly, clerk" }
+    - { rung: D3, title: Ganger, how: "An Overseer's sign-off", gets: "Runs a gang of four, takes a cut of its output, chooses the face" }
+    - { rung: TS, title: Time-Served, how: "A release board, at a credit threshold", gets: "Leaves the camp, may apply to any branch with a recommendation, and skips the trial week" }
+  consequences:
+    - { infraction: Missing muster, result: "Days added to your sentence" }
+    - { infraction: Contraband, result: "Item confiscated, credits docked" }
+    - { infraction: Refusing a work detail, result: "Commissary suspended for a shift" }
+    - { infraction: Fighting, result: "Solitary: a timed room, five minutes at most" }
+    - { infraction: Escape attempt, result: "Days added, Trusty status revoked" }
+  solitary_cap: "Five minutes, for everyone, with no exceptions."
+
+# ------------------------------------------------------------------ the week
+week:
+  - { day: Wednesday, time: "19:00", name: Works shift, about: "A mass dig. The bar moves during the session.", length: "60 to 90 minutes" }
+  - { day: Saturday, time: "19:00", name: Site op, about: "The headline, rotating through six kinds.", length: "90 minutes" }
+  - { day: Sunday, name: Promotion board, about: "Public, with the numbers attached.", length: "10 minutes" }
+  - { day: Monthly, name: Inspection, about: "Command walks the site and everything built is photographed for the archive.", length: "45 minutes" }
+
+saturday_rotation:
+  - { name: Full shift, about: "Everyone at once, the ordinary thing done properly." }
+  - { name: CI raid, about: "A landing at the pier or the Cut. Material is stolen and the bar drops." }
+  - { name: Riot, about: "Starts in the camp. Security holds, the Vanguard resolves." }
+  - { name: Selection, about: "Vanguard selection, run in public." }
+  - { name: Inspection, about: "A quiet one. Photographs, documents, a walk round what got built." }
+  - { name: The find, about: "A face opens onto something. Rare." }
+
+duty_roster:
+  - { role: Duty Officer, held_by: "Command, or any G4 and up", job: "Holds the radio. Authorises. The person new players are sent to." }
+  - { role: Gate NCO, held_by: "Security, G1 and up", job: "The Wire. Every movement in and out is logged through them." }
+  - { role: Yard Warden, held_by: "Security, G1 and up", job: "Head counts, the mess, the bunk rows." }
+  - { role: Dig Foreman, held_by: "Camp staff, or a Ganger", job: "Assigns faces, sets the pace, calls the collapse." }
+  - { role: Skip Master, held_by: Logistics, job: "Owns the skip. Logs every tonne into the ledger." }
+  - { role: Truck Driver, held_by: "Logistics, G2 and up", job: "Pier to Cut and back. The only vehicle at launch." }
+  - { role: Tower Watch, held_by: "Security or Facilities", job: "Port Control. Calls the boat in, watches the bay." }
+  - { role: Commissary Clerk, held_by: "Logistics, or a Trusty", job: "Runs the shop." }
+  - { role: Muster Clerk, held_by: "Administrative, or camp staff", job: "The roll, the count, the paperwork." }
+  - { role: Incident Commander, held_by: "Vanguard G3 and up, or the Duty Officer until they arrive", job: "Owns the incident from alarm to all clear." }
+  - { role: Boat Coxswain, held_by: "Vanguard, G2 and up", job: "The fjord patrol, and the arrival boat's escort." }
+  - { role: Archivist of the Watch, held_by: "Administrative, any grade", job: "Takes the photographs and writes the night up." }
+
+# ------------------------------------------------------------------ joining
+joining:
+  steps:
+    - { title: "Join the server and accept the rules", text: "The camp channel opens at once." }
+    - { title: "Link your Roblox account", text: "In #verify, run /verify. The rest of the server opens when the link is there. Join the Roblox group as well." }
+    - { title: "Apply when you know what you want", text: "Run /apply. The camp needs no application, so there is no rush." }
+  application:
+    picked_in_the_command: ["Which department", "Roughly how many hours a week", "Whether you can make the Wednesday or Saturday ops"]
+    typed_in_the_form:
+      - { label: "Roblox username", required: true, hint: "And roughly how old the account is." }
+      - { label: "Why this branch?", required: true, hint: "A line or two. Not an essay." }
+      - { label: "Been in a group like this before?", required: false, hint: "Which one, and what did you do there?" }
+      - { label: "Anything we should know?", required: false }
+    summary: "Six questions, about two minutes. Three are picked in the command, then a short form."
+    extras:
+      ADM: "Two paragraphs: an incident report from a prompt, in the site's voice."
+      FAC: "One screenshot of something you built (Engineering)."
+      SEC: "A three minute call on procedure, not on lore."
+      MVF: "No application. Selection only."
+    answer_within: "24 hours, including a no"
+
+# ------------------------------------------------------------------ the server
+pings:
+  - { name: Op Call, for: "Wednesday works shifts and Saturday site ops, an hour before" }
+  - { name: Breakthrough, for: "When the dig breaks into something new. It doesn't happen often." }
+  - { name: Blueprints, for: "Devlogs, build progress and what changed in the game" }
+  - { name: Rec Hall, for: "Community events, game nights and anything social" }
+  - { name: Vacancies, for: "A branch opening applications, a seat coming free, or a selection op" }
+  - { name: Memos, for: "Small news that isn't worth pinging everyone for" }
+
+bot:
+  name: CARAPACE
+  long_name: "Central Administrative Records And Personnel Accountability Control Engine"
+  public_commands:
+    - { cmd: /verify, does: "Check your Roblox link and open the server." }
+    - { cmd: /apply, does: "Apply to join a department." }
+    - { cmd: /schedule, does: "What is planned this week and this month, in your own time zone." }
+    - { cmd: /works, does: "The site status: the bar and each department's numbers." }
+    - { cmd: /ranks, does: "How ranks work." }
+    - { cmd: /record, does: "Your service record." }
+    - { cmd: /roster, does: "Who is in a department." }
+    - { cmd: /rankcheck, does: "Whether your record, your roles and your Roblox rank match." }
+    - { cmd: /detainee-status, does: "Your place on the camp ladder." }
+    - { cmd: /budget, does: "The works budget and what it has bought." }
+    - { cmd: /cases, does: "What is on your own conduct record." }
+    - { cmd: /complaint, does: "File a private complaint about someone." }
+    - { cmd: /catchup, does: "What changed since you were last here, with the story so far.", status: planned }
+    - { cmd: /whatis, does: "Look up a word from the glossary.", status: planned }
+    - { cmd: /help, does: "Every command open to you." }
+
+# ------------------------------------------------------------------ glossary
+glossary:
+  - { term: PRC, means: "Prometheus Research Corporation" }
+  - { term: CMD, means: "Site Command" }
+  - { term: ADM, means: "Administrative Branch" }
+  - { term: FAC, means: "Facilities Maintenance" }
+  - { term: "E&T", means: "Engineering & Technical, a section of Facilities" }
+  - { term: LOG, means: "Logistics, a section of Facilities" }
+  - { term: SEC, means: "Security Division" }
+  - { term: MVF, means: "Mobile Vanguard Force" }
+  - { term: "CD, Class-D", means: "Detainee Labour, and the people in it" }
+  - { term: CI, means: "The Continuum Interest: the people who raid the site and drop the bar, played for one op at a time. They are not random bandits, and their origin is inside PRC." }
+  - { term: "R&C", means: "Research and Containment. Locked." }
+  - { term: "G0 to G5", means: "Grades. Authority, the same in every branch." }
+  - { term: "Initiate, Operator, Custodian, Director", means: "The bands you see on Discord and Roblox: G0, G1 and G2, G3 and G4, G5." }
+  - { term: "C1 to C3", means: "The Command seats: Overseer, Continuum Director, Observer" }
+  - { term: "D0 to D3", means: "Rungs of the detainee ladder" }
+  - { term: "CL-1 to CL-4", means: "Clearance. It follows your grade." }
+  - { term: Contingent Asset, means: "What everyone is from arrival, and keeps for good" }
+  - { term: Founder, means: "The permanent honour for people who joined before the doors" }
+  - { term: "The camp, CDCZ", means: "Where detainees live and everyone starts" }
+  - { term: The Cut, means: "The open excavation. The dig face." }
+  - { term: The Adit, means: "The mouth of the tunnel into the eastern massif" }
+  - { term: The Wire, means: "The checkpoint between the camp and the work site" }
+  - { term: The skip, means: "Where spoil is dropped, counted and paid for" }
+  - { term: Spoil, means: "What comes off a rock face when you dig" }
+  - { term: Credits, means: "What a person earns and spends at the commissary" }
+  - { term: Budget, means: "What the site earns from tonnes dug, and spends on modules" }
+  - { term: Module, means: "One buildable piece of the site: a hut, a mast, a length of fence" }
+  - { term: The bar, means: "The works programme's progress. When it fills, the next part of the site opens." }
+  - { term: "Trusty, Ganger", means: "The second and third rungs of the detainee ladder" }
+  - { term: Time-Served, means: "A detainee released by a board, free to join a department" }
+  - { term: Muster, means: "The roll call at the start of a shift" }
+  - { term: Op, means: "A scheduled session: Wednesday and Saturday evenings" }
+  - { term: Domain failure, means: "A place, process or system that stopped behaving. What PRC is contracted to contain." }
+  - { term: "A face", means: "The working surface of rock you are digging. You get assigned one." }
+  - { term: "Drift", means: "A number on the works board that climbs and is never explained. Do not expect an answer yet." }
+  - { term: "Verified", means: "You have linked a Roblox account, nothing more. It opens the server past the first four channels, and /apply needs it." }
+  - { term: "Bloxlink", means: "The bot that does the linking. If you are verified with it in another server, ours usually picks that up on its own." }
+  - { term: "Branch", means: "Your department. What you do." }
+  - { term: "Grade", means: "How far up you are: G0 to G5, then C1 to C3." }
+  - { term: "Clearance", means: "Where you are allowed to go. It follows from your grade. CL-1 to CL-4." }
+  - { term: "HICOM", means: "High Command. Two people. The top of the structure." }
+  - { term: "The Register", means: "The Anomalous Registry. A risk document, not a monster manual." }
+  - { term: "A fragment", means: "Something the site was not supposed to keep. Partial, sometimes contradictory, never deleted once found." }
+  - { term: "Manifest", means: "What the next supply ship carries. The server votes on it." }
+  - { term: "In character", means: "Speaking as your character. Out of character means speaking as yourself, and anyone can call it to stop a scene." }
+  - { term: "The doors", means: "31 October 2026, when the game opens properly." }
+  - { term: Chapter, means: "A stretch of the story opened by a new floor. Each one gets a short public recap in #story-so-far." }
+
+# ------------------------------------------------------------------ the story so far
+# One recap per chapter, oldest first, added by /recap in the bot and copied here. Five parts,
+# under 1,500 characters in all, and only what happened on screen. Command reads each one first.
+#   - { n: 1, title: "", opened: 2026-11-07, happened: "", changed: "", found: "", still_open: "" }
+chapters: []
+
+# ------------------------------------------------------------------ decisions this file settles
+# Where the old pages disagreed, this is the answer, and every page now says it.
+settled:
+  - "The application is six questions: three picked in /apply, then a short form with two required and two optional answers. Orientation and the #how-to-join pin said five."
+  - "Rank names come in three layers: the grade (the contract), the band (Initiate, Operator, Custodian, Director: what Discord and Roblox show) and the branch title (the flavour). Orientation showed only the bands, the wiki only the titles."
+  - "Six branches. Five are somewhere you can end up; Command is not applied to. Pages said five or six without saying which."
+  - "The opposition is the Continuum Interest (CI). The Roblox About still said the Insurgency."
+  - "Six ping roles, Breakthrough included. The wiki listed five."
+  - "The #orientation-files pin links the wiki as well as orientation and the website."
+  - "MVF's G2 title is Operator and so is the band for G1 and G2. Harmless, but if it ever confuses anyone, rename the title, not the band."
+
+# ------------------------------------------------------------------ what a rank lets you do
+rank_powers:
+  SEC:
+    - { title: Cadet, can: "Supervised gate duty only." }
+    - { title: Officer, can: "Gate, escort, head count, contraband sweep, cuffs." }
+    - { title: Senior Officer, can: "Take the gate alone. Search a bunk row. Train cadets. Eligible for Vanguard selection." }
+    - { title: Sergeant, can: "Runs the watch. Sets the escort roster." }
+    - { title: Watch Commander, can: "Runs the division for a shift. Declares a riot. Requests the Vanguard." }
+    - { title: Chief of Security, can: "Owns the camp, the Wire and the procedure." }
+  "E&T":
+    - { title: Probationer, can: "Assist a placement. Cannot place." }
+    - { title: Works Hand, can: "Place approved modules from the catalogue." }
+    - { title: Technician, can: "Place restricted modules: power, comms, lighting." }
+    - { title: Foreman, can: "Runs the works shift. Decides the order of the build." }
+    - { title: Works Director, can: "Owns the module catalogue, the build order and the spend side of the budget." }
+  LOG:
+    - { title: Probationer, can: "Ride along. Load, do not drive." }
+    - { title: Loader, can: "Work the skip, unload the boat, stock the commissary." }
+    - { title: Storeman, can: "Drive the truck. Hold stores keys. Run an inventory count." }
+    - { title: Quartermaster, can: "Runs the supply shift and sets the commissary price list." }
+  ADM:
+    - { title: Probationer, can: "Shadow an intake." }
+    - { title: Clerk, can: "Process intake, take muster, file reports, run the ledger entries." }
+    - { title: Senior Clerk, can: "Audit a promotion. Draft documents for the archive. Train probationers." }
+    - { title: Records Supervisor, can: "Run the office for a shift. Approve a personnel file." }
+    - { title: Registrar, can: "Owns records, applications and the archive." }
+  MVF:
+    - { title: Selection, can: "On the selection op. Not yet Vanguard." }
+    - { title: Vanguard, can: "Kit, patrol, respond as part of a team." }
+    - { title: Operator, can: "A specialist slot: breacher, coxswain, marksman or medic." }
+    - { title: Section Leader, can: "Leads a four person section. Takes the field on contact." }
+    - { title: Vanguard Commander, can: "Owns response doctrine, selection and the cap on the branch." }
+
+# ------------------------------------------------------------------ what each department is doing
+department_week:
+  - { dept: The camp, tonight: "Work a face, haul to the skip, buy something, bank the rest", month: "Trusty, then Ganger, then a release board", for_good: "Every stud of the site came out of a detainee's face" }
+  - { dept: Engineering, tonight: "Place a module and photograph it", month: Foreman, for_good: "The site is the build log, and your name is on parts of it" }
+  - { dept: Logistics, tonight: "Truck runs, the skip, a commissary restock", month: Quartermaster, for_good: "Nothing was ever built that Logistics didn't move" }
+  - { dept: Security, tonight: "Gate, escort, count, sweep", month: Sergeant, for_good: "The camp holds, night after night, because of a roster" }
+  - { dept: Vanguard, tonight: "Kit, patrol, wait", month: "Selection, then Section Leader", for_good: "The nights the community retells are yours" }
+  - { dept: Administrative, tonight: "Intake, muster, reports, the ledger", month: Records Supervisor, for_good: "The archive: in fifty ops, it is the only memory the site has" }
+
+# ------------------------------------------------------------------ before the doors
+# Past dates drop off the page by themselves at build time.
+playtests:
+  - { date: 2026-10-14, label: "Playtest: the dig" }
+  - { date: 2026-10-17, label: "Playtest: dig to skip" }
+  - { date: 2026-10-21, label: "Playtest: the first build" }
+  - { date: 2026-10-24, label: "Playtest: the whole loop" }
+  - { date: 2026-10-28, label: "Playtest: break it. After this, bug fixes only." }
+  - { date: 2026-10-31, label: "The doors open" }
+
+# ------------------------------------------------------------------ orientation's first three steps
+first_steps:
+  - { title: "Say hello in the camp", text: "Go to #cd-common. That is the detainee camp and it is open to you right now, with no application and no waiting. Everyone starts as a Contingent Asset, the Corporation's word for somebody it has not assigned to a job yet." }
+  - { title: "Link your Roblox account", text: "Go to #verify and link your Roblox account. It takes about a minute and it opens the rest of the server; until then you see four channels." }
+  - { title: "Pick a department, then run /apply", text: "Pick whichever sounds like something you would enjoy on a Tuesday evening, not whichever sounds most impressive, then run /apply. Six questions, about two minutes, and an answer inside 24 hours either way. Staying in the camp is a normal choice too." }
+
+# ------------------------------------------------------------------ where things are (orientation)
+channel_groups:
+  - group: "Before you link · four channels"
+    channels:
+      - { name: "#verify", text: "Link your Roblox account here. This is the one that opens everything else." }
+      - { name: "#cd-common", text: "The camp. Open straight away, no rank and no application." }
+      - { name: "#arrival-terminal", text: "What this is, and how to get started tonight. Read only." }
+      - { name: "#rules", text: "The standard, and what happens when somebody falls short. Read only." }
+  - group: "Once you have linked"
+    channels:
+      - { name: "#how-to-join", text: "The departments, and the apply command." }
+      - { name: "#orientation-files", text: "Every document you are cleared for, and how to catch up." }
+      - { name: "#story-so-far", text: "One short recap per chapter." }
+      - { name: "#faq-desk", text: "No question is too basic." }
+      - { name: "#announcements", text: "Low volume, all of it matters." }
+  - group: "The site at work"
+    channels:
+      - { name: "#works-programme", text: "The bar, every morning." }
+      - { name: "#manifest-vote", text: "What the next ship carries. You decide." }
+      - { name: "#scheduled-operations", text: "Wednesday and Saturday, posted an hour ahead." }
+      - { name: "#session-reports", text: "Write up what happened. It does not need to be good." }
+  - group: "The record"
+    channels:
+      - { name: "#anomalous-registry", text: "The Risk Register. Everyone reads it, Records Officers write it." }
+      - { name: "#incident-reports", text: "What the site filed about it afterwards." }
+      - { name: "#fragment-archive", text: "Things the site was not supposed to keep. Never deleted once found." }
+      - { name: "#lore-discussion", text: "The archive is the record. This is the argument." }
+
+# ------------------------------------------------------------------ the charter, in voice
+charter_in_voice: |
+  PROMETHEUS RESEARCH CORPORATION
+  SITE-███ · RISK MITIGATION · UNIT-Δ
+
+  The Corporation is funded by government contract to identify, occupy and stabilise domain failures: locations, systems and processes that have ceased to behave according to their own rules. We do not collect anomalies. We move onto them and we do not leave.
+
+  Site-███ is a contract site. It consists of a supply pier, a detainee camp, an open excavation designated the Cut, and an adit driven into the eastern massif. Everything else on the licence is scheduled, funded, and not yet built.
+
+  Detainee Labour digs. Facilities Maintenance builds what is dug. Logistics moves what is built. Security Division counts them out and counts them back. Mobile Vanguard Force answers for the rest of it.
+
+  Personnel are reminded that the works programme is the site. What is built here is built permanently and is not subject to reversal by individual request.
+
+  Something below the fourth floor has been here longer than any of us. We are all still figuring out what that means.

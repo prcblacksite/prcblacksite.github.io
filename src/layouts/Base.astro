@@ -1,0 +1,85 @@
+---
+// Every page: the head, the header with search, the side menu, the footer, and the scripts each
+// page needs. The page itself goes in the slot.
+import { Font } from "astro:assets";
+import "../styles/tokens.css";
+import "../styles/site.css";
+import "../styles/roadmap.css";
+import "../styles/seals.css";
+import { EXTERNAL, GROUP_LABEL, NAV, P, SVG_CHEVRON, SVG_EXT, SVG_MENU, SVG_SEARCH, YEAR, esc, fmtDate, opsTime, seal, type Page } from "../lib/site";
+import Scripts from "../components/Scripts.astro";
+
+interface Props {
+  page: Page;
+  tokens: string[];
+}
+const { page, tokens } = Astro.props;
+const home = page.slug === "/";
+const title = home ? P.meta.name : `${page.title} · PRC`;
+const canonical = new URL(page.slug, Astro.site).href;
+const ogName = page.slug === "/" ? "home" : page.slug.replace(/^\/|\/$/g, "").replaceAll("/", "-");
+const ogImage = new URL(`/og/${ogName}.png`, Astro.site).href;
+
+const groups = NAV.map(([g, label, pages]) => {
+  const current = pages.some((p) => p.slug === page.slug);
+  const links = pages.map((p) => `<li><a href="${p.slug}"${p.slug === page.slug ? ' aria-current="page"' : ""}>${esc(p.nav)}</a></li>`).join("");
+  const external = (EXTERNAL[g] ?? []).map(([t, u]) => `<li><a href="${esc(u)}" rel="external">${esc(t)}${SVG_EXT}</a></li>`).join("");
+  return `<details class="nav-group" data-group="${g}"${g === "start" || current ? " open" : ""}><summary>${esc(label)}${SVG_CHEVRON}</summary><ul>${links}${external}</ul></details>`;
+}).join("");
+const side = `<nav class="side" id="side" aria-label="Site">${groups}<div class="side-foot"><p class="k">The doors open</p><p>${esc(fmtDate(P.meta.doors))}</p><p class="k">Ops</p><p>Wednesday and Saturday, ${opsTime()} UTC</p></div></nav>`;
+
+const L = P.links;
+const footLinks: [string, string][] = [["Orientation", "/orientation/"], ["Wiki", "/wiki/"], ["Roadmap", "/roadmap/"], ["Discord", L.discord], ["Roblox", L.roblox_group], ["GitHub", L.social.github]];
+const foot = `<footer class="foot"><span>© ${YEAR} ${esc(P.meta.name)}. All rights reserved.</span>${footLinks.map(([t, u]) => `<a href="${esc(u)}">${t}</a>`).join("")}<span>A roleplay group on Roblox. Not affiliated with Roblox Corporation.</span></footer>`;
+const group = page.group ? GROUP_LABEL[page.group] : page.slug === "/404/" ? "404" : "";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={page.description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={P.meta.name} />
+    <meta property="og:title" content={home ? P.meta.name : page.title} />
+    <meta property="og:description" content={page.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={home ? P.meta.name : page.title} />
+    <meta name="twitter:description" content={page.description} />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#14110F" />
+    <Font cssVariable="--font-barlow" preload={[{ weight: 700 }]} />
+    <Font cssVariable="--font-plex-sans" preload={[{ weight: 400 }]} />
+    <Font cssVariable="--font-plex-mono" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the page</a>
+    <header class="top">
+      <button type="button" class="menu-btn btn small" aria-controls="side" aria-expanded="false" data-menu set:html={`${SVG_MENU}<span class="sr-only">Menu</span>`} />
+      <a class="brand" href="/" set:html={`${seal("prc-icon")}<b>PRC</b><span>Prometheus Research Corporation</span>`} />
+      <label class="search" for="q" set:html={`${SVG_SEARCH}<span class="sr-only">Search the site</span><input id="q" type="search" placeholder="Search" autocomplete="off" spellcheck="false"><kbd aria-hidden="true">/</kbd>`} />
+      <div class="grow"></div>
+      <a class="btn small primary top-cta" href={L.discord}>Join the Discord</a>
+    </header>
+    <div class="scrim" data-scrim></div>
+    <Fragment set:html={side} />
+    <main class="main" id="main" tabindex="-1" data-pagefind-body={page.slug === "/404/" ? undefined : ""} data-pagefind-meta={`title:${home ? "Home" : page.title}, group:${group}`}>
+      <slot />
+      <section class="page" data-page="search" aria-labelledby="h-search" data-pagefind-ignore hidden>
+        <div class="wrap"><div class="results"><h1 id="h-search" tabindex="-1" class="sr-only">Search</h1><h2 data-results-title>Search</h2><p class="count" data-results-count aria-live="polite"></p><div data-results></div></div></div>
+      </section>
+    </main>
+    <Fragment set:html={foot} />
+    <Scripts tokens={tokens} toc={Boolean(page.toc)} />
+  </body>
+</html>

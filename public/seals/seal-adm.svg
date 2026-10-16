@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <path id="administrative_tArc" d="M 86,256 A 170,170 0 0,1 426,256"/>
+    <path id="administrative_bArc" d="M 94,256 A 162,162 0 0,0 418,256"/>
+    <path id="administrative_rArc" d="M 20,256 A 236,236 0 0,0 492,256"/>
+    <clipPath id="administrative_medClip"><circle cx="256" cy="256" r="117"/></clipPath>
+  </defs>
+  <circle cx="256" cy="256" r="250" fill="#1C3B53"/>
+  <circle cx="256" cy="256" r="244" fill="none" stroke="#122B3C" stroke-width="2.5" opacity=".75"/>
+  <circle cx="256" cy="256" r="206" fill="#D6C9BC"/>
+  <circle cx="256" cy="256" r="201" fill="none" stroke="#E6DCD1" stroke-width="3" opacity=".9"/>
+  <circle cx="256" cy="256" r="140" fill="#1C3B53"/>
+  <circle cx="256" cy="256" r="117" fill="#E6DCD1"/>
+  <g clip-path="url(#administrative_medClip)"><path d="M 261.0,253.0 L 354.6,253.0 L 352.4,242.2 L 352.0,231.1 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 325.9,222.6 L 314.9,218.6 L 315.9,207.0 Z" fill="#46687F" opacity="0.32"/><path d="M 261.0,253.0 L 307.1,189.3 L 293.3,199.1 L 295.4,182.3 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 287.0,137.6 L 277.3,136.8 L 267.8,134.9 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 251.1,192.1 L 247.1,199.5 L 240.1,194.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 231.1,198.0 L 229.9,207.4 L 220.8,205.0 Z" fill="#46687F" opacity="0.27"/><path d="M 261.0,253.0 L 180.9,196.0 L 184.0,211.4 L 169.4,217.3 Z" fill="#46687F" opacity="0.33"/><path d="M 261.0,253.0 L 143.7,232.0 L 142.2,244.1 L 141.8,256.4 Z" fill="#46687F" opacity="0.38"/><path d="M 261.0,253.0 L 189.3,272.2 L 202.5,275.5 L 194.9,286.9 Z" fill="#46687F" opacity="0.18"/><path d="M 261.0,253.0 L 177.8,325.5 L 196.6,323.4 L 196.2,342.3 Z" fill="#46687F" opacity="0.41"/><path d="M 261.0,253.0 L 234.4,321.1 L 240.3,321.6 L 245.4,324.4 Z" fill="#46687F" opacity="0.28"/><path d="M 261.0,253.0 L 265.0,318.0 L 271.4,311.9 L 279.5,315.4 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 296.1,325.2 L 301.8,321.4 L 307.9,318.1 Z" fill="#46687F" opacity="0.36"/><path d="M 261.0,253.0 L 307.2,301.1 L 301.3,287.3 L 315.9,291.0 Z" fill="#46687F" opacity="0.37"/><path d="M 261.0,253.0 L 339.1,291.3 L 328.7,276.1 L 346.3,270.4 Z" fill="#46687F" opacity="0.35"/><path d="M 261.0,253.0 L 328.5,256.9 L 319.9,248.5 L 327.2,238.8 Z" fill="#46687F" opacity="0.22"/></g>
+  <circle cx="256" cy="256" r="117" fill="none" stroke="#122B3C" stroke-width="3" opacity=".45"/>
+  <g transform="rotate(-30 256 256)">
+      <g stroke="#E6DCD1" stroke-width="7" paint-order="stroke">
+        <path d="M 243,226 v104 h13 v-16 h20 v-17 h-20 v-14 h26 v-17 h-26 v-40 Z" fill="#1C3B53"/>
+      </g>
+      <g stroke="#E6DCD1" stroke-width="7" paint-order="stroke">
+        <circle cx="250" cy="204" r="35" fill="#1C3B53"/>
+      </g>
+      <circle cx="250" cy="204" r="14" fill="#E6DCD1"/>
+    </g>
+  <polygon points="87.2,199.9 84.4,209.1 75.0,206.9 81.6,213.9 75.0,220.9 84.4,218.8 87.2,227.9 90.0,218.8 99.3,220.9 92.8,213.9 99.3,206.9 90.0,209.1" fill="#46687F"/><polygon points="87.2,284.1 84.4,293.2 75.0,291.1 81.6,298.1 75.0,305.1 84.4,302.9 87.2,312.1 90.0,302.9 99.3,305.1 92.8,298.1 99.3,291.1 90.0,293.2" fill="#46687F"/><polygon points="424.8,199.9 422.0,209.1 412.7,206.9 419.2,213.9 412.7,220.9 422.0,218.8 424.8,227.9 427.6,218.8 437.0,220.9 430.4,213.9 437.0,206.9 427.6,209.1" fill="#46687F"/><polygon points="424.8,284.1 422.0,293.2 412.7,291.1 419.2,298.1 412.7,305.1 422.0,302.9 424.8,312.1 427.6,302.9 437.0,305.1 430.4,298.1 437.0,291.1 427.6,293.2" fill="#46687F"/>
+  <text font-family="'DejaVu Sans Condensed','Arial Narrow',Arial,Helvetica,sans-serif" font-size="23" font-weight="700" letter-spacing="2.2" fill="#1C3B53">
+    <textPath href="#administrative_tArc" startOffset="50%" text-anchor="middle">ADMINISTRATIVE BRANCH</textPath></text>
+  <text font-family="'DejaVu Sans Condensed','Arial Narrow',Arial,Helvetica,sans-serif" font-size="12" font-weight="700" letter-spacing="1" fill="#1C3B53" opacity=".8">
+    <textPath href="#administrative_bArc" startOffset="50%" text-anchor="middle">RISK MITIGATION · AUTHORIZED PERSONNEL ONLY</textPath></text>
+  <text font-family="'DejaVu Sans Condensed','Arial Narrow',Arial,Helvetica,sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#D6C9BC">
+    <textPath href="#administrative_rArc" startOffset="50%" text-anchor="middle">SITE-███ · ADM</textPath></text>
+</svg>
