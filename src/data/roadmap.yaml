@@ -24,6 +24,7 @@ categories:
   - { key: ops, label: Operations, blurb: "The week, the events and the seasons." }
   - { key: story, label: The story, blurb: "What can be said. The rest is redacted until the site finds it." }
   - { key: community, label: Community, blurb: "Discord, the bot, the website and the tools around the game." }
+  - { key: play, label: In the game, blurb: "How it plays: arriving, the kit you carry, the people around you and the weather." }
 
 items:
   # ---------------------------------------------------------------- the site
@@ -278,7 +279,7 @@ items:
   - id: website
     title: One website
     category: community
-    status: building
+    status: live
     summary: "Orientation, the wiki and this roadmap in one place, with search."
     waits_on: []
   - id: rank-sync
@@ -314,6 +315,50 @@ items:
   - id: supporters
     title: Supporter perks
     category: community
-    status: later
+    status: building
     summary: "Once there are players to support."
     waits_on: [the-doors]
+
+  # ---------------------------------------------------------------- in the game
+  - id: deploy
+    title: Arriving and deploying
+    category: play
+    status: building
+    summary: "A main menu, then an eagle's eye map of the site: pick where to deploy and what to carry. Your team comes from your ranks, and anyone can work the camp."
+    waits_on: []
+  - id: loadouts
+    title: Loadouts by department
+    category: play
+    status: building
+    summary: "Each department carries its own kit, and more of it opens up as you rise."
+    waits_on: [five-departments, deploy]
+  - id: uniforms
+    title: Uniforms you can read
+    category: play
+    status: building
+    summary: "Every department and grade wears its own uniform, so a guard can tell a detainee at a glance."
+    waits_on: [five-departments]
+  - id: doors-keycards
+    title: Doors and keycards
+    category: play
+    status: building
+    summary: "Doors open by clearance. A keycard found on site raises yours until you die."
+    waits_on: []
+  - id: security-kit
+    title: The Security kit
+    category: play
+    status: building
+    summary: "Cuffs, escorts, and an alarm that locks the site down."
+    waits_on: [doors-keycards]
+  - id: radio-chat
+    title: Proximity chat and radios
+    category: play
+    status: building
+    summary: "Talk reaches the people near you. Departments carry a radio for their own channel."
+    waits_on: []
+  - id: weather
+    title: Rain and footsteps
+    category: play
+    status: building
+    summary: "Showers roll in off the sea, and every surface sounds like itself underfoot."
+    waits_on: []

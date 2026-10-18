@@ -125,7 +125,7 @@ test("the roadmap: map or list, picking, filters and search", async ({ page }) =
     await page.click('[data-view="map"]');
   }
   await page.click('.fchip[data-v="live"]');
-  await expect(page.locator("[data-count]")).toContainText("32");
+  await expect(page.locator("[data-count]")).toContainText("38");
   await expect(page.locator("[data-reset]")).toBeVisible();
   await page.click("[data-reset]");
   await page.fill("#rm-q", "boat");
