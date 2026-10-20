@@ -348,7 +348,7 @@ items:
     title: The Security kit
     category: play
     status: building
-    summary: "Cuffs, escorts, and an alarm that locks the site down."
+    summary: "Cuffs and escorts, a head count at every shift change, the supply truck checked at the Wire, five minutes of solitary at most, and an alarm that locks the site down. Security are paid for the work."
     waits_on: [doors-keycards]
   - id: radio-chat
     title: Proximity chat and radios
@@ -362,3 +362,15 @@ items:
     status: building
     summary: "Showers roll in off the sea, and every surface sounds like itself underfoot."
     waits_on: []
+  - id: site-pa
+    title: The site speaks
+    category: play
+    status: building
+    summary: "A public address with a chime, a shift bell every half hour and the supply ship's horn across the bay. Security and Administrative make the calls from Port Control."
+    waits_on: []
+  - id: settings
+    title: Settings for every device
+    category: play
+    status: building
+    summary: "A potato mode for slower devices, with shadows, light effects, rain and interface sounds each on or off. Saved between visits."
+    waits_on: [deploy]
